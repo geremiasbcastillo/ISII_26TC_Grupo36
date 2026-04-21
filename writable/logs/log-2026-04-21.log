@@ -329,3 +329,386 @@ DEBUG - 2026-04-21 19:44:21 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-04-21 19:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-21 19:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-21 19:44:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-21 20:46:20 --> ErrorException: Undefined variable $titulo
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\nav_view.php on line 7.
+ 1 APPPATH\Views\plantillas\nav_view.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $titulo', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('plantillas/nav_view', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('plantillas/nav_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 20:48:53 --> ErrorException: Undefined variable $titulo
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\nav_view.php on line 7.
+ 1 APPPATH\Views\plantillas\nav_view.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $titulo', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('plantillas/nav_view', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('plantillas/nav_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 20:48:53 --> ErrorException: Undefined variable $titulo
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\nav_view.php on line 7.
+ 1 APPPATH\Views\plantillas\nav_view.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $titulo', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('plantillas/nav_view', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('plantillas/nav_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 20:48:53 --> ErrorException: Undefined variable $titulo
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\nav_view.php on line 7.
+ 1 APPPATH\Views\plantillas\nav_view.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $titulo', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('plantillas/nav_view', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('plantillas/nav_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 20:48:54 --> ErrorException: Undefined variable $titulo
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\nav_view.php on line 7.
+ 1 APPPATH\Views\plantillas\nav_view.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $titulo', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('plantillas/nav_view', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('plantillas/nav_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 20:48:54 --> ErrorException: Undefined variable $titulo
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\nav_view.php on line 7.
+ 1 APPPATH\Views\plantillas\nav_view.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $titulo', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\plantillas\\nav_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('plantillas/nav_view', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('plantillas/nav_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-21 20:50:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 20:50:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-21 21:37:52 --> ErrorException: Undefined variable $opcionesTipos
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 40.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $opcionesTipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Home.php(22): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->agregar_equipo()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:37:53 --> ErrorException: Undefined variable $opcionesTipos
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 40.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $opcionesTipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Home.php(22): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->agregar_equipo()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:37:53 --> ErrorException: Undefined variable $opcionesTipos
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 40.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $opcionesTipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Home.php(22): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->agregar_equipo()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:38:12 --> ErrorException: Undefined variable $tipos
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 8.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Home.php(22): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->agregar_equipo()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:38:13 --> ErrorException: Undefined variable $tipos
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 8.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Home.php(22): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->agregar_equipo()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:38:14 --> ErrorException: Undefined variable $tipos
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 8.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Home.php(22): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->agregar_equipo()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:38:14 --> ErrorException: Undefined variable $tipos
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 8.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Home.php(22): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->agregar_equipo()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:46:27 --> Error: Class "App\Models\Marca_model" not found
+[Method: GET, Route: agregar]
+in APPPATH\Controllers\Equipos_controller.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:48:22 --> Error: Class "App\Models\Marca_model" not found
+[Method: GET, Route: agregar]
+in APPPATH\Controllers\Equipos_controller.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:49:31 --> Error: Class "App\Models\Modelos_Equipos_model" not found
+[Method: GET, Route: agregar]
+in APPPATH\Controllers\Equipos_controller.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:49:32 --> Error: Class "App\Models\Modelos_Equipos_model" not found
+[Method: GET, Route: agregar]
+in APPPATH\Controllers\Equipos_controller.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 21:49:46 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "frontend/registrar_equipo_view.php"
+[Method: GET, Route: agregar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontend/registrar_equipo_view.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/registrar_equipo_view', [], true)
+ 3 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/registrar_equipo_view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:03:21 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 106.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 106)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:05:23 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 106.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 106)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:05:24 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 106.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 106)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:05:24 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 106.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 106)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:09:10 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 106.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 106)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:09:17 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 106.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 106)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:09:18 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 106.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 106)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:09:19 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: agregar]
+in APPPATH\Views\frontend\agregar_equipo_view.php on line 106.
+ 1 APPPATH\Views\frontend\agregar_equipo_view.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php', 106)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\agregar_equipo_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/agregar_equipo_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(30): view('frontend/agregar_equipo_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->formulario_registro()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:09:42 --> Error: Class "App\Models\Clientes_model" not found
+[Method: POST, Route: registrar_equipo]
+in APPPATH\Controllers\Equipos_controller.php on line 91.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->guardar()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:09:57 --> Error: Class "App\Models\Clientes_model" not found
+[Method: POST, Route: registrar_equipo]
+in APPPATH\Controllers\Equipos_controller.php on line 91.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->guardar()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:10:35 --> Error: Class "App\Models\Clientes_Model" not found
+[Method: POST, Route: registrar_equipo]
+in APPPATH\Controllers\Equipos_controller.php on line 91.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->guardar()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-21 22:11:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:16:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:18:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:20:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:26:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 22:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -108,6 +108,7 @@ input {
     margin: 40px auto;
     text-align: center;
     padding: 20px;
+    
 }
 
 /* Fuerza a los botones a ponerse uno debajo del otro */
@@ -131,12 +132,145 @@ input {
 }
 
 /* Colores para cada acción */
-.btn-agregar { background-color: #28a745; }
-.btn-modificar { background-color: #ffc107; color: #333 !important; }
-.btn-eliminar { background-color: #dc3545; }
+.btn-agregar { background-color: #007bff; }
+.btn-modificar { background-color: #007bff; }
+.btn-eliminar { background-color: #007bff; }
 
 /* Efecto al pasar el mouse */
 .btn-largo:hover {
     filter: brightness(90%);
     transform: scale(1.02);
+}
+
+.registro-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f8f9fc; /* Fondo gris muy claro */
+    min-height: 80vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo de la tarjeta blanca */
+.registro-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Título */
+.registro-titulo {
+    text-align: center;
+    color: #0056b3; /* Azul oscuro */
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Disposición de columnas para escritorio */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Grupos de inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas (Labels) azules */
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0056b3;
+    margin-bottom: 8px;
+}
+
+/* Estilo unificado para inputs, selects y textareas */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 1px solid #99c2ff; /* Borde azul claro */
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+}
+
+/* Efecto al hacer clic en un campo */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+/* Contenedor de los botones finales */
+.form-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Botón Cancelar (Bordeado) */
+.btn-outline {
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0056b3;
+    background-color: transparent;
+    border: 1px solid #0056b3;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: #f0f7ff;
+}
+
+/* Botón Registrar (Sólido) */
+.btn-solid {
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #0056b3;
+    border: 1px solid #0056b3;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-solid:hover {
+    background-color: #004494;
+    border-color: #004494;
+}
+
+/* Diseño Responsivo: Si la pantalla es chica (celulares), se pone a una sola columna */
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .registro-card {
+        padding: 20px;
+    }
 }
