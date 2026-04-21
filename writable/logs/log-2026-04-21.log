@@ -851,8 +851,13 @@ DEBUG - 2026-04-21 22:26:37 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-04-21 22:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-21 22:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 >>>>>>> 11a3ab7fec398da8330b57a4cf6c11f6321deedc
+<<<<<<< HEAD
 CRITICAL - 2026-04-21 23:16:09 --> ParseError: syntax error, unexpected token "<<", expecting end of file
 [Method: GET, Route: /]
+=======
+CRITICAL - 2026-04-21 23:15:49 --> ParseError: syntax error, unexpected token "<<", expecting end of file
+[Method: GET, Route: inicio]
+>>>>>>> cf45559fdf2f15188bd65ecd2b56b1b524c85f0f
 in APPPATH\Config\Routes.php on line 16.
  1 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
@@ -860,8 +865,12 @@ in APPPATH\Config\Routes.php on line 16.
  4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 CRITICAL - 2026-04-21 23:16:10 --> ParseError: syntax error, unexpected token "<<", expecting end of file
 [Method: GET, Route: /]
+=======
+CRITICAL - 2026-04-21 23:15:51 --> ParseError: syntax error, unexpected token "<<", expecting end of file
+[Method: POST, Route: guardar_usuario]
 in APPPATH\Config\Routes.php on line 16.
  1 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
  2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
@@ -869,6 +878,26 @@ in APPPATH\Config\Routes.php on line 16.
  4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:16:03 --> ParseError: syntax error, unexpected token "<<", expecting end of file
+[Method: GET, Route: inicio]
+in APPPATH\Config\Routes.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:16:06 --> ParseError: syntax error, unexpected token "<<", expecting end of file
+[Method: POST, Route: guardar_usuario]
+>>>>>>> cf45559fdf2f15188bd65ecd2b56b1b524c85f0f
+in APPPATH\Config\Routes.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 CRITICAL - 2026-04-21 23:16:28 --> ParseError: syntax error, unexpected token "<<", expecting "function" or "const"
 [Method: GET, Route: /]
 in APPPATH\Controllers\Home.php on line 19.
@@ -894,3 +923,5 @@ in APPPATH\Controllers\Home.php on line 22.
  8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 DEBUG - 2026-04-21 23:17:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+>>>>>>> cf45559fdf2f15188bd65ecd2b56b1b524c85f0f
