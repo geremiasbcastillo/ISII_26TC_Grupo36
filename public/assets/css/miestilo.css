@@ -101,3 +101,42 @@ input {
     color: #888;
     font-size: 14px;
 }
+
+/* Contenedor que centra todo */
+.gestion-container {
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Fuerza a los botones a ponerse uno debajo del otro */
+.menu-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre botones */
+}
+
+/* El estilo del botón largo */
+.btn-largo {
+    display: block; /* Ocupa todo el ancho disponible */
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none; /* Quita el subrayado azul */
+    color: white !important; /* Fuerza el color blanco */
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* Colores para cada acción */
+.btn-agregar { background-color: #28a745; }
+.btn-modificar { background-color: #ffc107; color: #333 !important; }
+.btn-eliminar { background-color: #dc3545; }
+
+/* Efecto al pasar el mouse */
+.btn-largo:hover {
+    filter: brightness(90%);
+    transform: scale(1.02);
+}
