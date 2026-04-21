@@ -10,8 +10,8 @@
     <h2 class="titulo-gestion">Gestión de Equipos</h2>
     
     <div class="menu-acciones">
-        <a href="<?= base_url('equipos/agregar') ?>" class="btn-largo btn-agregar">
-            <span class="icono">➕</span> Agregar Nuevo Equipo
+        <a href="<?= base_url('agregar') ?>" class="btn-largo btn-agregar">
+            <span class="icono">➕</span> Registrar Nuevo Equipo
         </a>
 
         <a href="<?= base_url('equipos/modificar') ?>" class="btn-largo btn-modificar">

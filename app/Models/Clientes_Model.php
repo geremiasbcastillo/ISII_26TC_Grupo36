@@ -4,14 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Equipos_model extends Model
+class Clientes_Model extends Model
 {
-    protected $table = 'equipo';
-    protected $primaryKey = 'id_equipo';
+    protected $table = 'Cliente';
+    protected $primaryKey = 'id_cliente';
 
     protected $useAutoIncrement = true;
 
-    protected $allowedFields = ['falla', 'nroSerie', 'fechaIngreso', 'id_cliente', 'id_tipo', 'id_modelo'];
+    protected $allowedFields = ['nombre', 'apellido', 'dni', 'telefono', 'correo', 'id_direccion'];
 
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
