@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  color: #aaa;
+  background-color: #ffffff !important;
+  padding-top: 100px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 90px;
+  position: relative;
+  z-index: 5; /* Asegura que esté por debajo del header */
+  background-color: rgb(25, 108, 202);
+  color: black;
+  width: 100%;
+}
+
+h5{
+    color: green ;
+}
+
+.inicio {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Evita que el padding agrande el input */
+}
+
+/* Botones */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-login {
+    background-color: #28a745;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn-login:hover {
+    background-color: #218838;
+}
+
+.btn-register {
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.btn-register:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.separator {
+    margin: 20px 0;
+    color: #888;
+    font-size: 14px;
+}
