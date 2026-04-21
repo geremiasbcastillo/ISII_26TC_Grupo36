@@ -12,5 +12,5 @@
 </head>
 
 <nav>
-    
+    <h1 class ="text-center text-white"> Servicio Tecnico</h1>
 </nav>

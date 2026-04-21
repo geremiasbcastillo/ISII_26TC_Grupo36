@@ -14,15 +14,15 @@ class Usuarios_controller extends BaseController
         // 1. Reglas de validación ajustadas a los nombres del formulario en inicio_view.php
         $validation->setRules(
             [
-                'usuario'  => 'required|valid_email',
-                'password' => 'required|min_length[2]'
+                'correo'  => 'required|valid_email',
+                'contrasena' => 'required|min_length[2]'
             ],
             [   // Mensajes de error personalizados
-                'usuario' => [
+                'correo' => [
                     'required'    => 'El correo es obligatorio.',
                     'valid_email' => 'El correo debe tener un formato válido.'
                 ],
-                'password' => [
+                'contrasena' => [
                     'required'   => 'La contraseña es obligatoria.',
                     'min_length' => 'La contraseña debe tener al menos 2 caracteres.'
                 ]
@@ -50,7 +50,7 @@ class Usuarios_controller extends BaseController
 
         // 5. Verificación de contraseña y carga de sesión
         // Nota: Se usa 'contraseña' con ñ porque así está en tu $allowedFields
-        if ($user && $pass === $user['contraseña']) {
+        if ($user && $pass === $user['contrasena']) {
         $sessionData = [
             'id'       => $user['id_usuario'],
             'nombre'   => $user['nombre'],
@@ -64,15 +64,15 @@ class Usuarios_controller extends BaseController
         // 6. Redirección por roles
         switch ($user['id_rol']) {
             case '1': // Admin
-                return redirect()->route('prueba');
-            case '2': // Cliente
+                return redirect()->route('principal');
+            case '2': 
+                return redirect()->route('principal'); // Cliente
             default:
-                return redirect()->route('prueba'); 
+                return redirect()->route('principal'); 
         }
         } else {
                 // En caso de error, redirige de vuelta al login
                 return redirect()->route('inicio')->with('mensaje_error', 'Usuario y/o contraseña incorrectos!. O su usuario se encuentra inactivo.');
         }
-
     }
 }
