@@ -16,6 +16,12 @@ class Home extends BaseController
         return view('plantillas/nav_view', $data) . view('frontend/principal_view', $data) . view('plantillas/footer_view', $data);
     }
 
+    public function tecnico()
+    {
+        $data['titulo'] = 'Técnico';
+        return view('plantillas/nav_view', $data) . view('frontend/tecnico_view', $data) . view('plantillas/footer_view', $data);
+    }
+
     public function registro_usuario() {
         $data['titulo'] = 'Principal';
         return view('plantillas/nav_view', $data) . view('frontend/registro_view', $data) . view('plantillas/footer_view', $data);
