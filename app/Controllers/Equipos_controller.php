@@ -86,6 +86,7 @@ class Equipos_controller extends BaseController
         $nroSerie    = $request->getPost('nroSerie');
         $falla       = $request->getPost('falla');
         $fecha       = $request->getPost('fechaIngreso');
+        $equipo_estado = 1; // 1 para activo, 0 para inactivo
 
         // 4. Verificación del DNI contra la tabla `cliente`
         $clienteModel = new \App\Models\Clientes_Model();
@@ -105,7 +106,8 @@ class Equipos_controller extends BaseController
             'fechaIngreso' => $fecha,
             'id_cliente'   => $cliente['id_cliente'], // Usamos el ID del cliente encontrado
             'id_tipo'      => $id_tipo,
-            'id_modelo'    => $id_modelo
+            'id_modelo'    => $id_modelo,
+            'equipo_estado' => $equipo_estado
         ];
 
         // 6. Insertar y redirigir
@@ -113,6 +115,74 @@ class Equipos_controller extends BaseController
             return redirect()->route('principal')->with('mensaje_success', 'El equipo de ' . $cliente['nombre'] . ' fue ingresado exitosamente.');
         } else {
             return redirect()->back()->withInput()->with('mensaje_error', 'Ocurrió un error en la base de datos al guardar el equipo.');
+        }
+    }
+
+    public function listado_equipos()
+    {
+        $equipo = new \App\Models\Equipos_model();
+        
+        // 1. Instanciamos los modelos extra que necesita el Modal
+        $tipoModel   = new \App\Models\Tipos_equipos_model();
+        $marcaModel  = new \App\Models\Marcas_model();
+        $modeloModel = new \App\Models\Modelos_equipos_model();
+
+        $data['equipos'] = $equipo->select('
+                equipo.*, 
+                modelo_equipo.id_marca, 
+                tipo_equipo.nombre as tipo_nombre, 
+                modelo_equipo.nombre as modelo_nombre, 
+                marca.nombre as marca_nombre
+               ')
+               ->join('tipo_equipo', 'tipo_equipo.id_tipo = equipo.id_tipo')
+               ->join('modelo_equipo', 'modelo_equipo.id_modelo = equipo.id_modelo')
+               ->join('marca', 'marca.id_marca = modelo_equipo.id_marca')
+               ->where('equipo.equipo_estado', 1) // Solo equipos activos
+               ->findAll();
+
+        $data['titulo'] = 'Listado de Equipos';
+
+        // 2. Cargamos los datos en el array para que la Vista los encuentre
+        $data['tipos']   = $tipoModel->findAll();
+        $data['marcas']  = $marcaModel->findAll();
+        $data['modelos'] = $modeloModel->findAll();
+
+        return view('plantillas/nav_view', $data)
+             . view('frontend/listado_equipos_view', $data)
+             . view('plantillas/footer_view', $data);
+    }
+
+    public function editar_equipo($id = null)
+    {
+        $request = \Config\Services::request();
+        $equipoModel = new \App\Models\Equipos_model();
+
+        $id_equipo = $request->getPost('id_equipo');
+        
+        $dataUpdate = [
+            'id_tipo'   => $request->getPost('id_tipo'),
+            'id_marca'  => $request->getPost('id_marca'),
+            'id_modelo' => $request->getPost('id_modelo'),
+            'nroSerie'  => $request->getPost('nroSerie'),
+            'falla'     => $request->getPost('falla')
+        ];
+
+        // Usamos el método update() propio de CodeIgniter
+        if ($equipoModel->update($id_equipo, $dataUpdate)) {
+            return redirect()->back()->with('mensaje_success', 'El equipo fue modificado correctamente.');
+        } else {
+            return redirect()->back()->with('mensaje_error', 'Ocurrió un error al intentar modificar el equipo.');
+        }
+    }
+
+    public function eliminar_equipo($id = null)
+    {
+        $equipoModel = new \App\Models\Equipos_model();
+
+        if ($equipoModel->update($id, ['equipo_estado' => 0])) {
+            return redirect()->route('principal')->with('mensaje_success', 'El equipo fue eliminado correctamente.');
+        } else {
+            return redirect()->route('listado')->with('mensaje_error', 'Ocurrió un error al intentar eliminar el equipo.');
         }
     }
 }

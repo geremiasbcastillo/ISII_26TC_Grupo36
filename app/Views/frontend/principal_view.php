@@ -14,12 +14,9 @@
             <span class="icono">➕</span> Registrar Nuevo Equipo
         </a>
 
-        <a href="<?= base_url('equipos/modificar') ?>" class="btn-largo btn-modificar">
-            <span class="icono">📝</span> Modificar Datos de Equipo
+        <a href="<?= base_url('listado') ?>" class="btn-largo btn-listar">
+            <span class="icono">📝</span> Ver listado de Equipos
         </a>
 
-        <a href="<?= base_url('equipos/eliminar') ?>" class="btn-largo btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este registro?')">
-            <span class="icono">🗑️</span> Eliminar Equipo del Sistema
-        </a>
     </div>
 </div>

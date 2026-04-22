@@ -1,4 +1,265 @@
+<<<<<<< HEAD
 DEBUG - 2026-04-22 01:14:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-22 01:14:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-22 01:14:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-22 01:14:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+DEBUG - 2026-04-22 00:01:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:02:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:02:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:23:34 --> ErrorException: Undefined array key "id_marca"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 59.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_marca"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 59)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(148): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:25:05 --> ErrorException: Undefined array key "id_marca"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 59.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_marca"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 59)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(148): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:25:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:25:06 --> ErrorException: Undefined array key "id_marca"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 59.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_marca"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 59)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(148): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:27:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:27:44 --> ErrorException: Undefined variable $tipos
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 94.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(94): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 94)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(148): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:27:45 --> ErrorException: Undefined variable $tipos
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 94.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(94): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipos', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 94)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(148): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:29:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:29:51 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 114.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 114)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:29:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:29:52 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 114.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 114)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:29:53 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 114.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 114)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:29:53 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 114.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 114)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:29:53 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 114.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 114)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:29:54 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 114.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 114)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:29:54 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 114.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 114)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:29:54 --> ErrorException: Undefined array key "id_tipo"
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 114.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_tipo"', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 114)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:31:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:32:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:37:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 00:37:32 --> ErrorException: Undefined variable $item
+[Method: GET, Route: listado]
+in APPPATH\Views\frontend\listado_equipos_view.php on line 87.
+ 1 APPPATH\Views\frontend\listado_equipos_view.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $item', 'C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php', 87)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ISII_26TC_Grupo36\\app\\Views\\frontend\\listado_equipos_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/listado_equipos_view', [], true)
+ 5 APPPATH\Controllers\Equipos_controller.php(160): view('frontend/listado_equipos_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 00:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:41:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:42:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:42:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:42:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:42:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:42:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:43:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 00:43:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:03:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:03:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:03:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:06:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:06:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:14:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:14:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:15:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:15:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:15:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:15:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:16:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:16:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:16:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:16:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:17:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:17:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:19:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:19:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:19:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:19:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:19:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:20:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 01:20:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> 5f6f66d0734eda6c3003a5a972067bbeca6a1b0d
