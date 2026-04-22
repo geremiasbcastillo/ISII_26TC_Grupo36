@@ -203,6 +203,7 @@ button:hover {
     background-color: #f8f9fc; /* Fondo gris muy claro */
     min-height: 80vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 60px;
 }
 
 /* Estilo de la tarjeta blanca */
@@ -327,4 +328,60 @@ button:hover {
     .registro-card {
         padding: 20px;
     }
+}
+
+/* Contenedor blanco para el menú, similar a la imagen */
+.menu-gestion-box {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Titulo en azul con icono */
+.titulo-seccion {
+    color: #1a4a72; /* Azul oscuro de la imagen */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono-pantalla {
+    font-size: 28px;
+}
+
+/* Estilo de los botones rectangulares de la imagen */
+.lista-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre botones */
+}
+
+.btn-menu-cuadrado {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    color: #3b82f6; /* Azul brillante para el texto */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #d1d5db; /* Borde gris suave inicial */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* Todo en mayúsculas como la imagen */
+}
+
+/* Efecto al pasar el mouse (cambia a borde azul) */
+.btn-menu-cuadrado:hover {
+    border-color: #3b82f6;
+    background-color: #eff6ff; /* Fondo celeste muy clarito */
+    color: #1d4ed8;
 }

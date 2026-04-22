@@ -34,7 +34,7 @@ class Equipos_controller extends BaseController
     /**
      * Procesa y guarda el equipo verificando el DNI del cliente
      */
-    public function guardar()
+    public function registrarEquipo()
     {
         $validation = \Config\Services::validation();
         $request = \Config\Services::request();
@@ -55,9 +55,9 @@ class Equipos_controller extends BaseController
                     'required' => 'El DNI del cliente es obligatorio.',
                     'numeric'  => 'El DNI debe contener solo números.'
                 ],
-                'id_tipo'   => ['required' => 'Debe seleccionar un tipo de equipo.'],
-                'id_marca'  => ['required' => 'Debe seleccionar una marca.'],
-                'id_modelo' => ['required' => 'Debe seleccionar un modelo.']
+                'id_tipo'   => ['required' => 'Los datos ingresados son invalidos.'],
+                'id_marca'  => ['required' => 'Los datos ingresados son invalidos.'],
+                'id_modelo' => ['required' => 'Los datos ingresados son invalidos.']
             ]
         );
 
@@ -94,7 +94,7 @@ class Equipos_controller extends BaseController
 
         // Si escriben un DNI que no es 12345678 o 45115264 (los que tienes en BD), rebota
         if (!$cliente) {
-            return redirect()->route('agregar')->with('mensaje_error', 'El DNI ingresado no pertenece a un cliente registrado en el sistema.');
+            return redirect()->route('agregar')->with('mensaje_error', 'Cliente no encontrado.');
         }
 
         // 5. Preparar datos para la tabla `equipo`
@@ -175,11 +175,11 @@ class Equipos_controller extends BaseController
         }
     }
 
-    public function eliminar_equipo($id = null)
+    public function eliminarEquipo($id_equipo = null)
     {
         $equipoModel = new \App\Models\Equipos_model();
 
-        if ($equipoModel->update($id, ['equipo_estado' => 0])) {
+        if ($equipoModel->update($id_equipo, ['equipo_estado' => 0])) {
             return redirect()->route('principal')->with('mensaje_success', 'El equipo fue eliminado correctamente.');
         } else {
             return redirect()->route('listado')->with('mensaje_error', 'Ocurrió un error al intentar eliminar el equipo.');

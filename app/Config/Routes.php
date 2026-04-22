@@ -19,8 +19,8 @@ $routes->get('agregar', 'Equipos_controller::formulario_registro');
 
 $routes->get('listado', 'Equipos_controller::listado_equipos');
 
-$routes->post('registrar_equipo', 'Equipos_controller::guardar');
+$routes->post('registrar_equipo', 'Equipos_controller::registrarEquipo');
 
 $routes->post('actualizar/(:num)', 'Equipos_controller::editar_equipo/$1');
 
-$routes->post('eliminar/(:num)', 'Equipos_controller::eliminar_equipo/$1');  
+$routes->post('eliminar/(:num)', 'Equipos_controller::eliminarEquipo/$1');
