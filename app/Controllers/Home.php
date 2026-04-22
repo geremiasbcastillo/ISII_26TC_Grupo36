@@ -20,9 +20,16 @@ class Home extends BaseController
         $data['titulo'] = 'Principal';
         return view('plantillas/nav_view', $data) . view('frontend/registro_view', $data) . view('plantillas/footer_view', $data);
     }
-        public function agregar_equipo()
+
+    public function agregar_equipo()
     {
         $data['titulo'] = 'Agregar Equipo';
         return view('plantillas/nav_view', $data) . view('frontend/agregar_equipo_view', $data) . view('plantillas/footer_view', $data);
+    }
+
+    public function tecnico()
+    {
+        $data['titulo'] = 'Técnico';
+        return view('plantillas/nav_view', $data) . view('frontend/tecnico_view', $data) . view('plantillas/footer_view', $data);
     }
 }

@@ -13,7 +13,7 @@
                 VER LISTADO DE EQUIPOS
             </a>
 
-            <a href="<?= base_url('inicio') ?>" class="btn-menu-cuadrado">
+            <a href="<?= base_url('cerrar_sesion') ?>" class="btn-menu-cuadrado">
                 Cerrar Sesión
             </a>
         </div>

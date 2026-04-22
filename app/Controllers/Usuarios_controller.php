@@ -66,7 +66,7 @@ class Usuarios_controller extends BaseController
             case '1': // Admin
                 return redirect()->route('principal');
             case '2': 
-                return redirect()->route('principal'); // Cliente
+                return redirect()->route('tecnico'); // Cliente
             default:
                 return redirect()->route('principal'); 
         }
@@ -160,5 +160,12 @@ class Usuarios_controller extends BaseController
             // Error al insertar
             return redirect()->route('registro')->with('mensaje_error', 'Error al registrar el usuario. Intenta de nuevo.');
         }
+    }
+
+    public function cerrar_sesion()
+    {
+        $session = session();
+        $session->destroy();
+        return redirect()->route('inicio');
     }
 }
