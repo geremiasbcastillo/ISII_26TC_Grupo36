@@ -98,8 +98,7 @@ class Equipos_controller extends BaseController
         $equipo_estado = 1; // 1 para activo, 0 para inactivo
 
         // 4. Verificación del DNI contra la tabla `cliente`
-        $clienteModel = new \App\Models\Clientes_Model();
-        $cliente = $clienteModel->where('dni', $dni_cliente)->first();
+        $cliente = $this->verficarDni($dni_cliente);
 
         // Si escriben un DNI que no es 12345678 o 45115264 (los que tienes en BD), rebota
         if (!$cliente) {
@@ -134,6 +133,13 @@ class Equipos_controller extends BaseController
         } else {
             return redirect()->back()->withInput()->with('mensaje_error', 'Ocurrió un error en la base de datos al guardar el equipo.');
         }
+    }
+
+    public function verficarDni($dni)
+    {
+        $clienteModel = new \App\Models\Clientes_Model();
+        // Retorna el arreglo del cliente si lo encuentra, o null si no existe
+        return $clienteModel->where('dni', $dni)->first(); 
     }
 
     public function listado_equipos()
