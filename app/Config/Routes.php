@@ -13,6 +13,8 @@ $routes->post('guardar_usuario', 'Usuarios_controller::guardar_usuario');
 
 $routes->get('principal', 'Home::principal');
 
+$routes->get('tecnico', 'Home::tecnico');
+
 $routes->get('registro', 'Home::registro_usuario');
 
 $routes->get('agregar', 'Equipos_controller::formulario_registro');

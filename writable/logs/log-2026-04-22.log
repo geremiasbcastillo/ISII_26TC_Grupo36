@@ -620,3 +620,1031 @@ DEBUG - 2026-04-22 03:36:34 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-04-22 03:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-22 03:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-22 03:39:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-22 04:13:33 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:13:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:33 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-22 04:13:34 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:13:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:34 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-22 04:13:34 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:13:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:34 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-22 04:13:34 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:13:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:34 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 04:13:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-22 04:13:37 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:13:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:37 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-22 04:13:44 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:13:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:44 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-22 04:13:56 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:13:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:56 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-22 04:13:57 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:13:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:13:57 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-22 04:14:28 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:14:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:14:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:14:28 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-22 04:14:38 --> mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause' in C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`...', 0)
+#1 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`...')
+#2 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`...')
+#3 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`...', Array, false)
+#4 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ISII_26TC_Grupo36\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ISII_26TC_Grupo36\app\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+#8 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+#9 C:\xampp\htdocs\ISII_26TC_Grupo36\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ISII_26TC_Grupo36\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ISII_26TC_Grupo36\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-22 04:14:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+[Method: GET, Route: listado]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:14:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:14:38 --> [Caused by] mysqli_sql_exception: Unknown column 'equipo.equipo_estado' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `equipo`.*, `modelo_equipo`.`id_marca`, `tipo_equipo`.`nombre` as `tipo_nombre`, `modelo_equipo`.`nombre` as `modelo_nombre`, `marca`.`nombre` as `marca_nombre`
+FROM `equipo`
+JOIN `tipo_equipo` ON `tipo_equipo`.`id_tipo` = `equipo`.`id_tipo`
+JOIN `modelo_equipo` ON `modelo_equipo`.`id_modelo` = `equipo`.`id_modelo`
+JOIN `marca` ON `marca`.`id_marca` = `modelo_equipo`.`id_marca`
+WHERE `equipo`.`equipo_estado` = :equipo.equipo_estado:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Equipos_controller.php(159): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 04:16:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:16:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:16:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:20:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:20:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 04:26:58 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "frontend/principal_tecnico_view.php"
+[Method: GET, Route: principal_tecnico]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontend/principal_tecnico_view.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/principal_tecnico_view', [], true)
+ 3 APPPATH\Controllers\Home.php(22): view('frontend/principal_tecnico_view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->principal_tecnico()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:26:59 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "frontend/principal_tecnico_view.php"
+[Method: GET, Route: principal_tecnico]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontend/principal_tecnico_view.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/principal_tecnico_view', [], true)
+ 3 APPPATH\Controllers\Home.php(22): view('frontend/principal_tecnico_view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->principal_tecnico()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 04:27:00 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "frontend/principal_tecnico_view.php"
+[Method: GET, Route: principal_tecnico]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontend/principal_tecnico_view.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('frontend/principal_tecnico_view', [], true)
+ 3 APPPATH\Controllers\Home.php(22): view('frontend/principal_tecnico_view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->principal_tecnico()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 04:29:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:29:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:32:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:32:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 04:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
