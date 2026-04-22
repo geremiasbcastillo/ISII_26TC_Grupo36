@@ -21,7 +21,6 @@ class Equipos_controller extends BaseController
 
         $data['titulo']  = 'Registrar Equipo';
         
-        // Cargamos todos los datos para llenar los <select>
         $data['marcas']  = $marcaModel->findAll();
         $data['tipos']   = $tipoModel->findAll();
         $data['modelos'] = $modeloModel->findAll();
@@ -39,7 +38,6 @@ class Equipos_controller extends BaseController
         $validation = \Config\Services::validation();
         $request = \Config\Services::request();
 
-        // 1. Reglas de validación adaptadas a los dropdowns
         $validation->setRules(
             [
                 'dni_cliente'  => 'required|numeric',
@@ -70,7 +68,6 @@ class Equipos_controller extends BaseController
             ]
         );
 
-        // 2. Si la validación falla, recargamos la vista con los errores y los combos
         if (!$validation->withRequest($request)->run()) {
             $data['titulo'] = 'Registrar Equipo';
             $data['validation'] = $validation->getErrors();
@@ -88,7 +85,6 @@ class Equipos_controller extends BaseController
                  . view('plantillas/footer_view', $data);
         }
 
-        // 3. Obtener datos limpios del POST
         $dni_cliente = $request->getPost('dni_cliente');
         $id_tipo     = $request->getPost('id_tipo');
         $id_modelo   = $request->getPost('id_modelo');
@@ -97,10 +93,9 @@ class Equipos_controller extends BaseController
         $fecha       = $request->getPost('fechaIngreso');
         $equipo_estado = 1; // 1 para activo, 0 para inactivo
 
-        // 4. Verificación del DNI contra la tabla `cliente`
+        // Verificación del DNI contra la tabla `cliente` usando el metodo verficarDni(dni)
         $cliente = $this->verficarDni($dni_cliente);
 
-        // Si escriben un DNI que no es 12345678 o 45115264 (los que tienes en BD), rebota
         if (!$cliente) {
             return redirect()->route('agregar')->with('mensaje_error', 'Cliente no encontrado.');
         }
@@ -114,7 +109,6 @@ class Equipos_controller extends BaseController
             return redirect()->route('agregar')->with('mensaje_error', 'Equipo ya se encuentra registrado.');
         }
 
-        // 5. Preparar datos para la tabla `equipo`
         $equipoModel = new \App\Models\Equipos_model();
         
         $dataEquipo = [
@@ -127,7 +121,6 @@ class Equipos_controller extends BaseController
             'equipo_estado' => $equipo_estado
         ];
 
-        // 6. Insertar y redirigir
         if ($equipoModel->insert($dataEquipo)) {
             return redirect()->route('principal')->with('mensaje_success', 'El equipo de ' . $cliente['nombre'] . ' fue ingresado exitosamente.');
         } else {
@@ -138,7 +131,6 @@ class Equipos_controller extends BaseController
     public function verficarDni($dni)
     {
         $clienteModel = new \App\Models\Clientes_Model();
-        // Retorna el arreglo del cliente si lo encuentra, o null si no existe
         return $clienteModel->where('dni', $dni)->first(); 
     }
 
@@ -146,7 +138,6 @@ class Equipos_controller extends BaseController
     {
         $equipo = new \App\Models\Equipos_model();
         
-        // 1. Instanciamos los modelos extra que necesita el Modal
         $tipoModel   = new \App\Models\Tipos_equipos_model();
         $marcaModel  = new \App\Models\Marcas_model();
         $modeloModel = new \App\Models\Modelos_equipos_model();
@@ -166,7 +157,6 @@ class Equipos_controller extends BaseController
 
         $data['titulo'] = 'Listado de Equipos';
 
-        // 2. Cargamos los datos en el array para que la Vista los encuentre
         $data['tipos']   = $tipoModel->findAll();
         $data['marcas']  = $marcaModel->findAll();
         $data['modelos'] = $modeloModel->findAll();
@@ -191,7 +181,6 @@ class Equipos_controller extends BaseController
             'falla'     => $request->getPost('falla')
         ];
 
-        // Usamos el método update() propio de CodeIgniter
         if ($equipoModel->update($id_equipo, $dataUpdate)) {
             return redirect()->back()->with('mensaje_success', 'El equipo fue modificado correctamente.');
         } else {

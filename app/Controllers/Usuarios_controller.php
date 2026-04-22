@@ -11,14 +11,12 @@ class Usuarios_controller extends BaseController
         $request = \Config\Services::request();
         $session = session();
 
-        // 1. Reglas de validación ajustadas a los nombres del formulario en inicio_view.php
         $validation->setRules(
             [
                 'correo'  => 'required|valid_email',
                 'contrasena' => 'required|min_length[2]'
             ],
-            [   // Mensajes de error personalizados
-                'correo' => [
+            [   'correo' => [
                     'required'    => 'El correo es obligatorio.',
                     'valid_email' => 'El correo debe tener un formato válido.'
                 ],
@@ -29,27 +27,20 @@ class Usuarios_controller extends BaseController
             ]
         );
 
-        // 2. Validación de formulario
         if (!$validation->withRequest($request)->run()) {
             $data['titulo'] = 'Inicio de sesión';
             $data['validation'] = $validation->getErrors();
             
-            // Ajustado a la estructura de carpetas que parece tener tu proyecto
             return view('plantillas/nav_view', $data) . view('frontend/inicio_view', $data) . view('plantillas/footer_view');
         }
 
-        // 3. Obtención de datos del POST
         $email = $request->getPost('correo'); // En el HTML lo llamaste "correo"
         $pass  = $request->getPost('contrasena');
 
-        // 4. Uso del Modelo Usuarios_model (con namespace)
         $model = new \App\Models\Usuarios_model();
         
-        // Buscamos por la columna 'email' definida en tu modelo
         $user = $model->where('email', $email)->first();
 
-        // 5. Verificación de contraseña y carga de sesión
-        // Nota: Se usa 'contraseña' con ñ porque así está en tu $allowedFields
         if ($user && $pass === $user['contrasena']) {
         $sessionData = [
             'id'       => $user['id_usuario'],
@@ -61,7 +52,7 @@ class Usuarios_controller extends BaseController
         ];
         $session->set($sessionData);
 
-        // 6. Redirección por roles
+        // Redirijo según roles
         switch ($user['id_rol']) {
             case '1': // Admin
                 return redirect()->route('principal');
@@ -71,7 +62,6 @@ class Usuarios_controller extends BaseController
                 return redirect()->route('principal'); 
         }
         } else {
-                // En caso de error, redirige de vuelta al login
                 return redirect()->route('inicio')->with('mensaje_error', 'Usuario y/o contraseña incorrectos!. O su usuario se encuentra inactivo.');
         }
     }
@@ -82,7 +72,7 @@ class Usuarios_controller extends BaseController
         $request = \Config\Services::request();
         $session = session();
 
-        // 1. Reglas de validación
+        // Reglas de validación
         $validation->setRules(
             [
                 'nombre'      => 'required|alpha_space|min_length[2]',
@@ -122,14 +112,12 @@ class Usuarios_controller extends BaseController
             ]
         );
 
-        // 2. Validar formulario
         if (!$validation->withRequest($request)->run()) {
             $data['titulo'] = 'Registro';
             $data['validation'] = $validation->getErrors();
             return view('plantillas/nav_view', $data) . view('frontend/registro_view', $data) . view('plantillas/footer_view');
         }
 
-        // 3. Obtener datos del formulario
         $nombre = $request->getPost('nombre');
         $apellido = $request->getPost('apellido');
         $dni = $request->getPost('dni');
@@ -137,10 +125,9 @@ class Usuarios_controller extends BaseController
         $rol = $request->getPost('rol');
         $contrasena = $request->getPost('contrasena');
 
-        // 4. Mapear rol texto a ID
+        // Mapeamos rol texto a ID
         $rol_id = ($rol === 'Administrador') ? 1 : 2; // 1 = Admin, 2 = Técnico
 
-        // 5. Preparar datos para guardar
         $data_registro = [
             'nombre'      => $nombre,
             'apellido'    => $apellido,
@@ -150,7 +137,6 @@ class Usuarios_controller extends BaseController
             'id_rol'      => $rol_id
         ];
 
-        // 6. Usar el modelo para insertar
         $model = new \App\Models\Usuarios_model();
         
         if ($model->insert($data_registro)) {

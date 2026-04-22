@@ -1,7 +1,6 @@
 <?php 
 helper('form'); 
-// Preparamos los arrays para los dropdowns. 
-// Nota: $tipos, $marcas y $modelos deben ser enviados desde tu controlador.
+
 $opcionesTipos = ['' => 'Seleccione un tipo...'];
 if (isset($tipos)) {
     foreach ($tipos as $tipo) {
