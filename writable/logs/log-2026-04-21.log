@@ -925,3 +925,5 @@ in APPPATH\Controllers\Home.php on line 22.
 DEBUG - 2026-04-21 23:17:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 =======
 >>>>>>> cf45559fdf2f15188bd65ecd2b56b1b524c85f0f
+DEBUG - 2026-04-21 23:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 23:21:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

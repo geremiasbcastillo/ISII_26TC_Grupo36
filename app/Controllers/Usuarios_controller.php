@@ -85,8 +85,8 @@ class Usuarios_controller extends BaseController
         // 1. Reglas de validación
         $validation->setRules(
             [
-                'nombre'      => 'required|alpha|min_length[2]',
-                'apellido'    => 'required|alpha|min_length[2]',
+                'nombre'      => 'required|alpha_space|min_length[2]',
+                'apellido'    => 'required|alpha_space|min_length[2]',
                 'dni'         => 'required|min_length[5]',
                 'correo'      => 'required|valid_email|is_unique[usuario.email]',
                 'rol'         => 'required',
@@ -95,12 +95,12 @@ class Usuarios_controller extends BaseController
             [
                 'nombre' => [
                     'required'   => 'El nombre es obligatorio.',
-                    'alpha'      => 'El nombre solo puede contener letras.',
+                    'alpha_space' => 'El nombre solo puede contener letras y espacios.',
                     'min_length' => 'El nombre debe tener al menos 2 caracteres.'
                 ],
                 'apellido' => [
                     'required'   => 'El apellido es obligatorio.',
-                    'alpha'      => 'El apellido solo puede contener letras.',
+                    'alpha_space' => 'El apellido solo puede contener letras y espacios.',
                     'min_length' => 'El apellido debe tener al menos 2 caracteres.'
                 ],
                 'dni' => [
