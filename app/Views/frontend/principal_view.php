@@ -13,8 +13,8 @@
                 VER LISTADO DE EQUIPOS
             </a>
 
-            <a href="<?= base_url('principal') ?>" class="btn-menu-cuadrado">
-                VOLVER
+            <a href="<?= base_url('inicio') ?>" class="btn-menu-cuadrado">
+                Cerrar Sesión
             </a>
         </div>
     </div>

@@ -24,12 +24,6 @@ if (isset($modelos)) {
 }
 ?>
 
-<?php if (session()->getFlashdata('mensaje_error')): ?>
-    <div class="alert alert-danger my-4" role="alert">
-        <?= session()->getFlashdata('mensaje_error') ?>
-    </div>
-<?php endif; ?>
-
 <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -53,6 +47,12 @@ if (isset($modelos)) {
             <div class="registro-card">
                 <h2 class="registro-titulo">REGISTRAR EQUIPO</h2>
                 
+                <?php if (session()->getFlashdata('mensaje_error')): ?>
+                    <div class="alert alert-danger my-4" role="alert">
+                        <?= session()->getFlashdata('mensaje_error') ?>
+                    </div>
+                <?php endif; ?>
+
                 <?= form_open('registrar_equipo', ['class' => 'registro-form']) ?>
                     
                     <div class="form-group" style="background-color: #f0f7ff; padding: 15px; border-radius: 6px; margin-bottom: 25px;">
@@ -62,8 +62,7 @@ if (isset($modelos)) {
                             'id'          => 'dni_cliente', 
                             'type'        => 'number', 
                             'class'       => 'form-control', 
-                            'placeholder' => 'Ingrese el DNI para verificar...',
-                            'required'    => 'required'
+                            'placeholder' => 'Ingrese el DNI para verificar...'
                         ]) ?>
                         <small style="color: #666; margin-top: 5px;">El sistema verificará que el cliente exista antes de registrar el equipo.</small>
                     </div>
@@ -73,8 +72,7 @@ if (isset($modelos)) {
                             <label for="id_tipo">Tipo de equipo *</label>
                             <?= form_dropdown('id_tipo', $opcionesTipos, '', [
                                 'id'       => 'id_tipo',
-                                'class'    => 'form-control',
-                                'required' => 'required'
+                                'class'    => 'form-control'
                             ]) ?>
                         </div>
                         <div class="form-group">
@@ -84,25 +82,23 @@ if (isset($modelos)) {
                                 'id'          => 'nroSerie', 
                                 'type'        => 'number', 
                                 'class'       => 'form-control', 
-                                'placeholder' => 'N° de serie del fabricante',
-                                'required'    => 'required'
+                                'placeholder' => 'N° de serie del fabricante'
                             ]) ?>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="id_marca">Marca </label>
+                            <label for="id_marca">Marca *</label>
                             <?= form_dropdown('id_marca', $opcionesMarcas, '', [
                                 'id'       => 'id_marca',
-                                'class'    => 'form-control',
-                                'required' => 'required'
+                                'class'    => 'form-control'
                             ]) ?>
                         </div>
                     
                         <div class="form-group">
                             <label for="id_modelo">Modelo *</label>
-                            <select id="id_modelo" name="id_modelo" class="form-control" required>
+                            <select id="id_modelo" name="id_modelo" class="form-control" >
                                 <option value="" disabled selected>Seleccione primero una marca...</option>
                                 
                                 <?php foreach($modelos as $modelo): ?>
@@ -122,8 +118,7 @@ if (isset($modelos)) {
                             'id'          => 'falla', 
                             'class'       => 'form-control', 
                             'rows'        => '3',
-                            'placeholder' => 'Descripción detallada de la falla...',
-                            'required'    => 'required'
+                            'placeholder' => 'Descripción detallada de la falla...'
                         ]) ?>
                     </div>
 
@@ -134,8 +129,7 @@ if (isset($modelos)) {
                                 'name'        => 'fechaIngreso', 
                                 'id'          => 'fechaIngreso', 
                                 'type'        => 'date', 
-                                'class'       => 'form-control', 
-                                'required'    => 'required'
+                                'class'       => 'form-control'
                             ]) ?>
                         </div>
                     </div>

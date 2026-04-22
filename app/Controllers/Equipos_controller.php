@@ -45,7 +45,6 @@ class Equipos_controller extends BaseController
                 'dni_cliente'  => 'required|numeric',
                 'id_tipo'      => 'required',
                 'id_marca'     => 'required',
-                'id_modelo'    => 'required',
                 'nroSerie'     => 'required|numeric',
                 'falla'        => 'required',
                 'fechaIngreso' => 'required|valid_date'
@@ -55,9 +54,19 @@ class Equipos_controller extends BaseController
                     'required' => 'El DNI del cliente es obligatorio.',
                     'numeric'  => 'El DNI debe contener solo números.'
                 ],
+                'nroSerie' => [
+                    'required' => 'El número de serie es obligatorio.',
+                    'numeric'  => 'El número de serie debe contener solo números.'
+                ],
+                'fechaIngreso' => [
+                    'required' => 'La fecha de ingreso es obligatoria.',
+                    'valid_date' => 'Ingrese una fecha válida.'
+                ],
+                'falla' => [
+                    'required' => 'La descripción de la falla es obligatoria.'
+                ],
                 'id_tipo'   => ['required' => 'Los datos ingresados son invalidos.'],
                 'id_marca'  => ['required' => 'Los datos ingresados son invalidos.'],
-                'id_modelo' => ['required' => 'Los datos ingresados son invalidos.']
             ]
         );
 
@@ -68,14 +77,14 @@ class Equipos_controller extends BaseController
             
             $marcaModel  = new \App\Models\Marcas_model();
             $tipoModel   = new \App\Models\Tipos_Equipos_model();
-            $modeloModel = new \App\Models\Modelo_Equipos_model();
+            $modeloModel = new \App\Models\Modelos_Equipos_model();
             
             $data['marcas']  = $marcaModel->findAll();
             $data['tipos']   = $tipoModel->findAll();
             $data['modelos'] = $modeloModel->findAll();
 
             return view('plantillas/nav_view', $data) 
-                 . view('frontend/registrar_equipo_view', $data) 
+                 . view('frontend/agregar_equipo_view', $data) 
                  . view('plantillas/footer_view', $data);
         }
 
@@ -95,6 +104,15 @@ class Equipos_controller extends BaseController
         // Si escriben un DNI que no es 12345678 o 45115264 (los que tienes en BD), rebota
         if (!$cliente) {
             return redirect()->route('agregar')->with('mensaje_error', 'Cliente no encontrado.');
+        }
+
+        $equipoModel = new \App\Models\Equipos_model();
+        
+        // Buscamos si ya existe algún equipo con ese número de serie en la BD
+        $equipoExistente = $equipoModel->where('nroSerie', $nroSerie)->first();
+
+        if($equipoExistente){
+            return redirect()->route('agregar')->with('mensaje_error', 'Equipo ya se encuentra registrado.');
         }
 
         // 5. Preparar datos para la tabla `equipo`
