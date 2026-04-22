@@ -11,7 +11,7 @@ class Equipos_model extends Model
 
     protected $useAutoIncrement = true;
 
-    protected $allowedFields = ['falla', 'nroSerie', 'fechaIngreso', 'id_cliente', 'id_tipo', 'id_modelo'];
+    protected $allowedFields = ['falla', 'nroSerie', 'fechaIngreso', 'id_cliente', 'id_tipo', 'id_modelo', 'equipo_estado'];
 
     protected $returnType = 'array';
     protected $useSoftDeletes = false;

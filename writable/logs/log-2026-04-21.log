@@ -925,3 +925,97 @@ in APPPATH\Controllers\Home.php on line 22.
 DEBUG - 2026-04-21 23:17:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 =======
 >>>>>>> cf45559fdf2f15188bd65ecd2b56b1b524c85f0f
+DEBUG - 2026-04-21 23:21:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 23:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 23:27:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-21 23:28:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-21 23:40:06 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:57:05 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:57:44 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:57:45 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:57:46 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:57:47 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:57:57 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:57:57 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 23:57:58 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Equipos_model::getEquiposConDetalles
+[Method: GET, Route: listado]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Equipos_controller.php(123): CodeIgniter\Model->__call('getEquiposConDetalles', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Equipos_controller->listado_equipos()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipos_controller))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

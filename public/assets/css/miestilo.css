@@ -188,8 +188,7 @@ button:hover {
 
 /* Colores para cada acción */
 .btn-agregar { background-color: #007bff; }
-.btn-modificar { background-color: #007bff; }
-.btn-eliminar { background-color: #007bff; }
+.btn-listar { background-color: #007bff; }
 
 /* Efecto al pasar el mouse */
 .btn-largo:hover {
