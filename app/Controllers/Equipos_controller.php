@@ -15,12 +15,14 @@ class Equipos_controller extends BaseController
      */
     public function formulario_registro()
     {
+        // Cargamos los modelos necesarios para obtener los datos de marcas, tipos y modelos.
         $marcaModel  = new \App\Models\Marcas_model();
         $tipoModel   = new \App\Models\Tipos_Equipos_model();
         $modeloModel = new \App\Models\Modelos_Equipos_model();
 
         $data['titulo']  = 'Registrar Equipo';
         
+        // Obtenemos los datos de marcas, tipos y modelos para llenar los dropdowns en la vista.
         $data['marcas']  = $marcaModel->findAll();
         $data['tipos']   = $tipoModel->findAll();
         $data['modelos'] = $modeloModel->findAll();
@@ -35,9 +37,11 @@ class Equipos_controller extends BaseController
      */
     public function registrarEquipo()
     {
+        // Preparamos la herramienta de validación y la petición.
         $validation = \Config\Services::validation();
         $request = \Config\Services::request();
 
+        // Reglas de validación
         $validation->setRules(
             [
                 'dni_cliente'  => 'required|numeric',
@@ -68,6 +72,7 @@ class Equipos_controller extends BaseController
             ]
         );
 
+        // Si la validación falla retorna a la vista con los errores y los datos para los dropdowns.
         if (!$validation->withRequest($request)->run()) {
             $data['titulo'] = 'Registrar Equipo';
             $data['validation'] = $validation->getErrors();
@@ -85,6 +90,7 @@ class Equipos_controller extends BaseController
                  . view('plantillas/footer_view', $data);
         }
 
+        // Si llegamos acá, los datos son correctos. Los guardamos en variables.
         $dni_cliente = $request->getPost('dni_cliente');
         $id_tipo     = $request->getPost('id_tipo');
         $id_modelo   = $request->getPost('id_modelo');
@@ -111,6 +117,7 @@ class Equipos_controller extends BaseController
 
         $equipoModel = new \App\Models\Equipos_model();
         
+        // Cargamos los datos en un arreglo para insertar en la base de datos.
         $dataEquipo = [
             'nroSerie'     => $nroSerie,
             'falla'        => $falla,
@@ -121,6 +128,7 @@ class Equipos_controller extends BaseController
             'equipo_estado' => $equipo_estado
         ];
 
+        // El método insert() devuelve true si guardó bien en la BD, o false si falló.
         if ($equipoModel->insert($dataEquipo)) {
             return redirect()->route('principal')->with('mensaje_success', 'El equipo de ' . $cliente['nombre'] . ' fue ingresado exitosamente.');
         } else {
@@ -128,16 +136,22 @@ class Equipos_controller extends BaseController
         }
     }
 
+    /**
+     * Verifica si el DNI del cliente existe en la base de datos y devuelve el registro del cliente o null si no se encuentra.
+     */
     public function verficarDni($dni)
     {
         $clienteModel = new \App\Models\Clientes_Model();
         return $clienteModel->where('dni', $dni)->first(); 
     }
 
+    /**
+     * Muestra el listado de equipos activos con sus datos relacionados (tipo, marca, modelo).
+     */
     public function listado_equipos()
     {
+        // Cargamos el modelo de equipos y hacemos un join con las tablas relacionadas para obtener toda la información necesaria.
         $equipo = new \App\Models\Equipos_model();
-        
         $tipoModel   = new \App\Models\Tipos_equipos_model();
         $marcaModel  = new \App\Models\Marcas_model();
         $modeloModel = new \App\Models\Modelos_equipos_model();
@@ -157,6 +171,7 @@ class Equipos_controller extends BaseController
 
         $data['titulo'] = 'Listado de Equipos';
 
+        // También cargamos los datos de tipos, marcas y modelos para mostrar en la vista si es necesario.
         $data['tipos']   = $tipoModel->findAll();
         $data['marcas']  = $marcaModel->findAll();
         $data['modelos'] = $modeloModel->findAll();
@@ -166,13 +181,18 @@ class Equipos_controller extends BaseController
              . view('plantillas/footer_view', $data);
     }
 
+    /**
+     * Procesa la edición de un equipo existente, validando los datos y actualizando el registro en la base de datos.
+     */
     public function editar_equipo($id = null)
     {
         $request = \Config\Services::request();
         $equipoModel = new \App\Models\Equipos_model();
 
+        // Captura el ID del equipo que viene oculto en el formulario (input type="hidden")
         $id_equipo = $request->getPost('id_equipo');
         
+        // Prepara el arreglo con los nuevos datos actualizados
         $dataUpdate = [
             'id_tipo'   => $request->getPost('id_tipo'),
             'id_marca'  => $request->getPost('id_marca'),
@@ -181,6 +201,8 @@ class Equipos_controller extends BaseController
             'falla'     => $request->getPost('falla')
         ];
 
+        // Actualiza el equipo en la base de datos usando el ID capturado y los nuevos datos. 
+        // Si la actualización es exitosa, redirige con un mensaje de éxito, de lo contrario muestra un error.
         if ($equipoModel->update($id_equipo, $dataUpdate)) {
             return redirect()->back()->with('mensaje_success', 'El equipo fue modificado correctamente.');
         } else {
@@ -188,10 +210,14 @@ class Equipos_controller extends BaseController
         }
     }
 
+    /**
+     * Procesa la eliminación lógica de un equipo, cambiando su estado a inactivo en la base de datos.
+     */
     public function eliminarEquipo($id_equipo = null)
     {
         $equipoModel = new \App\Models\Equipos_model();
 
+        // En lugar de usar $equipoModel->delete(), hace un UPDATE del estado a 0 (inactivo).
         if ($equipoModel->update($id_equipo, ['equipo_estado' => 0])) {
             return redirect()->route('principal')->with('mensaje_success', 'El equipo fue eliminado correctamente.');
         } else {

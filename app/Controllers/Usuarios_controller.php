@@ -5,6 +5,9 @@ use App\Models\Usuarios_model;
 
 class Usuarios_controller extends BaseController
 {
+    /** 
+     * Procesa el formulario de inicio de sesión, valida los datos y maneja la sesión del usuario.
+    */
     public function buscar_usuario()
     {
         // Preparamos la herramienta de validación, la petición y la sesión.
@@ -72,7 +75,10 @@ class Usuarios_controller extends BaseController
                     return redirect()->route('inicio')->with('mensaje_error', 'Usuario y/o contraseña incorrectos!. O su usuario se encuentra inactivo.');
             }
     }
-
+    
+    /**
+     * Procesa el formulario de registro de usuario, valida los datos y guarda el nuevo usuario en la base de datos.
+     */
     public function guardar_usuario()
     {
         // Preparamos la herramienta de validación, la petición y la sesión.
@@ -159,7 +165,10 @@ class Usuarios_controller extends BaseController
             return redirect()->route('registro')->with('mensaje_error', 'Error al registrar el usuario. Intenta de nuevo.');
         }
     }
-
+    
+    /**
+     * Cierra la sesión del usuario actual y redirige a la página de inicio.
+     */
     public function cerrar_sesion()
     {
         $session = session();
