@@ -8,7 +8,7 @@ class Usuarios_controller extends BaseController
     /** 
      * Procesa el formulario de inicio de sesión, valida los datos y maneja la sesión del usuario.
     */
-    public function buscar_usuario()
+    public function buscarUsuario()
     {
         // Preparamos la herramienta de validación, la petición y la sesión.
         $validation = \Config\Services::validation();
@@ -79,7 +79,7 @@ class Usuarios_controller extends BaseController
     /**
      * Procesa el formulario de registro de usuario, valida los datos y guarda el nuevo usuario en la base de datos.
      */
-    public function guardar_usuario()
+    public function guardarUsuario()
     {
         // Preparamos la herramienta de validación, la petición y la sesión.
         $validation = \Config\Services::validation();
@@ -169,7 +169,7 @@ class Usuarios_controller extends BaseController
     /**
      * Cierra la sesión del usuario actual y redirige a la página de inicio.
      */
-    public function cerrar_sesion()
+    public function cerrarSesion()
     {
         $session = session();
         $session->destroy();

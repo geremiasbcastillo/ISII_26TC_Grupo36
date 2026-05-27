@@ -10,14 +10,14 @@ $routes->get('/', 'Home::index', ['filter' => 'guest']);
 
 $routes->get('inicio', 'Home::index', ['filter' => 'guest']);
 
-$routes->get('registro', 'Home::registro_usuario', ['filter' => 'guest']);
+$routes->get('registro', 'Home::registroUsuario', ['filter' => 'guest']);
 
 
-$routes->post('verificar_usuario', 'Usuarios_controller::buscar_usuario');
+$routes->post('verificar_usuario', 'Usuarios_controller::buscarUsuario');
 
-$routes->post('guardar_usuario', 'Usuarios_controller::guardar_usuario');
+$routes->post('guardar_usuario', 'Usuarios_controller::guardarUsuario');
 
-$routes->get('cerrar_sesion', 'Usuarios_controller::cerrar_sesion');
+$routes->get('cerrar_sesion', 'Usuarios_controller::cerrarSesion');
 
 // Rutas para técnicos (solo accesibles para Técnicos)  
 $routes->get('tecnico', 'Home::tecnico', ['filter' => 'tecnico']);
@@ -26,13 +26,13 @@ $routes->get('tecnico', 'Home::tecnico', ['filter' => 'tecnico']);
 // Rutas para administración de equipos (solo accesibles para Admin)
 $routes->get('principal', 'Home::principal', ['filter' => 'admin']);
 
-$routes->get('agregar', 'Equipos_controller::formulario_registro', ['filter' => 'admin']);
+$routes->get('agregar', 'Equipos_controller::mostrarFormularioRegistro', ['filter' => 'admin']);
 
-$routes->get('listado', 'Equipos_controller::listado_equipos', ['filter' => 'admin']);
+$routes->get('listado', 'Equipos_controller::listadoEquipos', ['filter' => 'admin']);
 
 $routes->post('registrar_equipo', 'Equipos_controller::registrarEquipo', ['filter' => 'admin']);
 
-$routes->post('actualizar/(:num)', 'Equipos_controller::editar_equipo/$1', ['filter' => 'admin']);
+$routes->post('actualizar/(:num)', 'Equipos_controller::editarEquipo/$1', ['filter' => 'admin']);
 
 $routes->post('eliminar/(:num)', 'Equipos_controller::eliminarEquipo/$1', ['filter' => 'admin']);
 

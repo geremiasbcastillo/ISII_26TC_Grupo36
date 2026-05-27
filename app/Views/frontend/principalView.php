@@ -6,7 +6,7 @@
         
         <div class="lista-botones">
             <a href="<?= base_url('agregar') ?>" class="btn-menu-cuadrado">
-                REGISTRAR NUEVO EQUIPO
+                REGISTRAR EQUIPO
             </a>
 
             <a href="<?= base_url('listado') ?>" class="btn-menu-cuadrado">

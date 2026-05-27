@@ -13,7 +13,7 @@ class Equipos_controller extends BaseController
     /**
      * Muestra la vista del formulario cargando los datos para los dropdowns
      */
-    public function formulario_registro()
+    public function mostrarFormularioRegistro()
     {
         // Cargamos los modelos necesarios para obtener los datos de marcas, tipos y modelos.
         $marcaModel  = new \App\Models\Marcas_model();
@@ -148,7 +148,7 @@ class Equipos_controller extends BaseController
     /**
      * Muestra el listado de equipos activos con sus datos relacionados (tipo, marca, modelo).
      */
-    public function listado_equipos()
+    public function listadoEquipos()
     {
         // Cargamos el modelo de equipos y hacemos un join con las tablas relacionadas para obtener toda la información necesaria.
         $equipo = new \App\Models\Equipos_model();
@@ -184,7 +184,7 @@ class Equipos_controller extends BaseController
     /**
      * Procesa la edición de un equipo existente, validando los datos y actualizando el registro en la base de datos.
      */
-    public function editar_equipo($id = null)
+    public function editarEquipo($id = null)
     {
         $request = \Config\Services::request();
         $equipoModel = new \App\Models\Equipos_model();
