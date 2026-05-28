@@ -36,3 +36,5 @@ $routes->post('actualizar/(:num)', 'Equipos_controller::editarEquipo/$1', ['filt
 
 $routes->post('eliminar/(:num)', 'Equipos_controller::eliminarEquipo/$1', ['filter' => 'admin']);
 
+$routes->get('diagnostico', 'Diagnosticos_controller::index', ['filter' => 'tecnico']);
+$routes->post('guardar_diagnostico', 'Diagnosticos_controller::guardarDiagnostico', ['filter' => 'tecnico']);

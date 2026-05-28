@@ -28,7 +28,7 @@ class Equipos_controller extends BaseController
         $data['modelos'] = $modeloModel->findAll();
 
         return view('plantillas/nav_view', $data) 
-             . view('frontend/agregar_equipo_view', $data) 
+             . view('frontend/agregarEquipo_view', $data) 
              . view('plantillas/footer_view', $data);
     }
 
@@ -86,7 +86,7 @@ class Equipos_controller extends BaseController
             $data['modelos'] = $modeloModel->findAll();
 
             return view('plantillas/nav_view', $data) 
-                 . view('frontend/agregar_equipo_view', $data) 
+                 . view('frontend/agregarEquipo_view', $data) 
                  . view('plantillas/footer_view', $data);
         }
 
@@ -177,7 +177,7 @@ class Equipos_controller extends BaseController
         $data['modelos'] = $modeloModel->findAll();
 
         return view('plantillas/nav_view', $data)
-             . view('frontend/listado_equipos_view', $data)
+             . view('frontend/listadoEquipos_view', $data)
              . view('plantillas/footer_view', $data);
     }
 
