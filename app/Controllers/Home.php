@@ -33,10 +33,33 @@ class Home extends BaseController
         return view('plantillas/nav_view', $data) . view('frontend/agregarEquipo_view', $data) . view('plantillas/footer_view', $data);
     }
 
-    
     public function diagnostico()
     {
         $data['titulo'] = 'Diagnóstico';
         return view('plantillas/nav_view', $data) . view('frontend/diagnostico_view', $data) . view('plantillas/footer_view', $data);
+    }
+
+    public function repuestos()
+    {
+        $data['titulo'] = 'Verificación de Stock';
+        return view('plantillas/nav_view', $data) . view('frontend/repuestos_view', $data) . view('plantillas/footer_view', $data);
+    }
+    
+    public function registrar_repuestos()
+    {
+        $data['titulo'] = 'Verificación de Stock';
+        return view('plantillas/nav_view', $data) . view('frontend/registrarRep_view', $data) . view('plantillas/footer_view', $data);
+    }
+
+    public function stock_repuestos()
+    {
+        $data['titulo'] = 'Stock Actual de Repuestos';
+        return view('plantillas/nav_view', $data) . view('frontend/stockRepuestos_view', $data) . view('plantillas/footer_view', $data);
+    }
+
+    public function actualizar_repuestos()
+    {
+        $data['titulo'] = 'Actualizar Repuestos';
+        return view('plantillas/nav_view', $data) . view('frontend/actualizarRepuestos_view', $data) . view('plantillas/footer_view', $data);
     }
 }

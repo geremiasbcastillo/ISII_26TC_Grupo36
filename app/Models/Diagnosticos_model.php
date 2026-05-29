@@ -9,7 +9,7 @@ class Diagnosticos_model extends Model
     protected $table = 'diagnostico';
     protected $primaryKey = 'id_diagnostico';
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id_equipo', 'diagnostico'];
+    protected $allowedFields = ['fechaDiagnostico', 'id_usuario', 'analisis', 'solucion', 'costo_estimado', 'id_equipo'];
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
     protected $useTimestamps = false;

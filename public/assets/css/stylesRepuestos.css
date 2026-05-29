@@ -1,0 +1,168 @@
+/* =========================================
+   Reset y variables base
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-color: #f0f4f8; /* Fondo general grisáceo/azulado */
+    --primary-blue: #0056b3; /* Azul oscuro para textos principales */
+    --light-blue: #cce5ff; /* Azul claro para los placeholders */
+    --border-color: #a7c7e7; /* Azul pálido para bordes de inputs */
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #333;
+}
+
+/* =========================================
+   Header (Barra superior)
+   ========================================= */
+.topbar {
+    background-color: var(--white);
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   Contenedor principal
+   ========================================= */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* =========================================
+   Tarjetas (Cards) blancas
+   ========================================= */
+.card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* =========================================
+   Formulario (Grid)
+   ========================================= */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 20px 40px; /* Espaciado entre filas y columnas */
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.form-group input, 
+.form-group select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #555;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: var(--primary-blue);
+}
+
+/* =========================================
+   Botones
+   ========================================= */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: #007bff; /* Azul vibrante */
+    border: 1px solid #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #e6f2ff;
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    color: #6c757d;
+    border: 1px solid #a0aab2;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+}
+
+/* =========================================
+   Sección Lista
+   ========================================= */
+.section-title {
+    color: #007bff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.placeholder-row {
+    background-color: var(--light-blue);
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Pasa a 1 sola columna en móviles */
+    }
+}
+

@@ -19,8 +19,21 @@ $routes->post('guardar_usuario', 'Usuarios_controller::guardarUsuario');
 
 $routes->get('cerrar_sesion', 'Usuarios_controller::cerrarSesion');
 
+
 // Rutas para técnicos (solo accesibles para Técnicos)  
 $routes->get('tecnico', 'Home::tecnico', ['filter' => 'tecnico']);
+
+$routes->get('repuestos', 'Home::repuestos', ['filter' => 'admin']);
+
+$routes->get('registrar_repuestos', 'Home::registrar_repuestos', ['filter' => 'admin']);
+
+$routes->get('stock_repuestos', 'Home::stock_repuestos', ['filter' => 'admin']);
+
+$routes->get('actualizar_repuestos', 'Home::actualizar_repuestos', ['filter' => 'admin']);
+
+$routes->get('diagnostico', 'Diagnosticos_controller::index', ['filter' => 'tecnico']);
+
+$routes->post('guardar_diagnostico', 'Diagnosticos_controller::guardarDiagnostico', ['filter' => 'tecnico']);
 
 
 // Rutas para administración de equipos (solo accesibles para Admin)
@@ -36,5 +49,3 @@ $routes->post('actualizar/(:num)', 'Equipos_controller::editarEquipo/$1', ['filt
 
 $routes->post('eliminar/(:num)', 'Equipos_controller::eliminarEquipo/$1', ['filter' => 'admin']);
 
-$routes->get('diagnostico', 'Diagnosticos_controller::index', ['filter' => 'tecnico']);
-$routes->post('guardar_diagnostico', 'Diagnosticos_controller::guardarDiagnostico', ['filter' => 'tecnico']);

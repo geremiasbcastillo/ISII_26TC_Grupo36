@@ -13,6 +13,10 @@
                 VER LISTADO DE EQUIPOS
             </a>
 
+            <a href="<?= base_url('repuestos') ?>" class="btn-menu-cuadrado">
+                GESTIONAR REPUESTOS
+            </a>
+
             <a href="<?= base_url('cerrar_sesion') ?>" class="btn-menu-cuadrado">
                 Cerrar Sesión
             </a>
