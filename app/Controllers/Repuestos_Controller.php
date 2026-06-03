@@ -159,5 +159,6 @@ class Repuestos_controller extends BaseController
             return redirect()->back()->withInput()->with('mensaje_error', 'Error al actualizar en la base de datos.');
         }
     }
+
     
 }
