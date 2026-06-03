@@ -1,66 +1,118 @@
+<?php 
+helper('form'); 
+
+// 1. Preparar opciones para el dropdown de Categorías
+$opcionesCategorias = ['' => 'Seleccione una categoría...'];
+if (isset($categorias)) {
+    foreach ($categorias as $categoria) {
+        // Asumiendo que tu tabla de categorías tiene un 'id_categoria_repuesto' y un 'nombre'
+        $opcionesCategorias[$categoria['id_categoria_repuesto']] = $categoria['nombre']; 
+    }
+}
+?>
+
 <head>
     <link href="<?= base_url('public/assets/css/stylesRepuestos.css') ?>" rel="stylesheet">
 </head>
-<main class="container">
-    
-    <h1 class="page-title">REGISTRAR REPUESTO</h1>
 
-    <section class="card form-section">
-        <form action="#" method="POST">
-            
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="codigo">Código:</label>
-                    <input type="text" id="codigo" name="codigo" placeholder="Ingrese código del repuesto">
-                </div>
-                <div class="form-group">
-                    <label for="nombre">Nombre del repuesto:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre del repuesto">
-                </div>
-
-                <div class="form-group">
-                    <label for="categoria">Categoría:</label>
-                    <select id="categoria" name="categoria">
-                        <option value="">Seleccione una categoría</option>
-                        <option value="1">Pantallas</option>
-                        <option value="2">Baterías</option>
-                        <option value="3">Placas</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="proveedor">Proveedor:</label>
-                    <select id="proveedor" name="proveedor">
-                        <option value="">Seleccione un proveedor</option>
-                        <option value="1">Proveedor A</option>
-                        <option value="2">Proveedor B</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese cantidad disponible" min="0">
-                </div>
-                <div class="form-group">
-                    <label for="costo">Costo Repuesto:</label>
-                    <input type="number" id="costo" name="costo" placeholder="0" min="0" step="0.01">
-                </div>
-            </div>
-
-            <div class="form-actions">
-                <button type="submit" class="btn btn-outline-primary">Registrar Repuesto</button>
-                <button type="button" class="btn btn-outline-secondary">Cancelar</button>
-            </div>
-        </form>
-    </section>
-
-    <section class="card list-section">
-        <h2 class="section-title">Lista de Repuestos Registrados</h2>
-        
-        <div class="list-placeholders">
-            <div class="placeholder-row"></div>
-            <div class="placeholder-row"></div>
-            <div class="placeholder-row"></div>
+<body>
+    <?php if(isset($validation)): ?>
+        <div class="alert alert-danger" style="color: #ff4d4d; margin-bottom: 15px;">
+            <ul>
+                <?php foreach($validation as $error):?>
+                    <li><?= esc($error) ?></li>
+                <?php endforeach;?>
+            </ul>
         </div>
-    </section>
+    <?php endif; ?>
 
-</main>
+    <div class="registro-container">
+        
+        <div class="registro-card">
+            <h2 class="registro-titulo">REGISTRAR REPUESTO</h2>
+            
+            <?php if (session()->getFlashdata('mensaje_error')): ?>
+                <div class="alert alert-danger my-4" role="alert">
+                    <?= session()->getFlashdata('mensaje_error') ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('mensaje_success')): ?>
+                <div class="alert alert-success my-4" role="alert" style="color: green;">
+                    <?= session()->getFlashdata('mensaje_success') ?>
+                </div>
+            <?php endif; ?>
+
+            <?= form_open('guardar_repuesto', ['class' => 'registro-form']) ?>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del repuesto *</label>
+                        <?= form_input([
+                            'name'        => 'nombre', 
+                            'id'          => 'nombre', 
+                            'type'        => 'text', 
+                            'class'       => 'form-control', 
+                            'placeholder' => 'Ej: Motor Ventilador 1/4 HP'
+                        ]) ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_categoria_repuesto">Categoría *</label>
+                        <?= form_dropdown('id_categoria_repuesto', $opcionesCategorias, '', [
+                            'id'    => 'id_categoria_repuesto',
+                            'class' => 'form-control'
+                        ]) ?>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad inicial en stock *</label>
+                        <?= form_input([
+                            'name'        => 'cantidad', 
+                            'id'          => 'cantidad', 
+                            'type'        => 'number', 
+                            'class'       => 'form-control',
+                            'min'         => '0',
+                            'placeholder' => 'Unidades disponibles'
+                        ]) ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad_minima">Stock mínimo (Alerta) *</label>
+                        <?= form_input([
+                            'name'        => 'cantidad_minima', 
+                            'id'          => 'cantidad_minima', 
+                            'type'        => 'number', 
+                            'class'       => 'form-control',
+                            'min'         => '0',
+                            'placeholder' => 'Unidades para alertar'
+                        ]) ?>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="width: 50%;">
+                        <label for="monto">Monto (Precio unitario) *</label>
+                        <?= form_input([
+                            'name'        => 'monto', 
+                            'id'          => 'monto', 
+                            'type'        => 'number', 
+                            'class'       => 'form-control',
+                            'min'         => '0',
+                            'step'        => '0.01',
+                            'placeholder' => '0.00'
+                        ]) ?>
+                    </div>
+                </div>
+
+                <div class="form-acciones">
+                    <button type="button" class="btn-outline" onclick="window.history.back();">Cancelar</button>
+                    <?= form_submit('submit', 'Registrar Repuesto', ['class' => 'btn-solid']) ?>
+                </div>
+
+            <?= form_close() ?>
+        </div>
+
+    </div>
+
+</body>

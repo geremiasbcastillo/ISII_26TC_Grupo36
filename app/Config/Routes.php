@@ -35,6 +35,9 @@ $routes->get('diagnostico', 'Diagnosticos_controller::index', ['filter' => 'tecn
 
 $routes->post('guardar_diagnostico', 'Diagnosticos_controller::guardarDiagnostico', ['filter' => 'tecnico']);
 
+$routes->post('guardar_repuesto', 'Repuestos_controller::guardarRepuesto', ['filter' => 'admin']); 
+
+$routes->post('guardar_edicion', 'Repuestos_controller::guardar_edicion', ['filter' => 'admin']);
 
 // Rutas para administración de equipos (solo accesibles para Admin)
 $routes->get('principal', 'Home::principal', ['filter' => 'admin']);

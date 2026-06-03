@@ -13,52 +13,48 @@
                         <th>Código</th>
                         <th>Nombre</th>
                         <th>Categoría</th>
-                        <th>Cantidad</th>
+                        <th>Cantidad Mínima</th>
+                        <th>Cantidad </th>
                         <th>Costo Unitario</th>
-                        <th>Proveedor</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>REP-001</strong></td>
-                        <td>Pantalla iPhone 13 OLED</td>
-                        <td>Pantallas</td>
-                        <td style="color: #28a745; font-weight: bold;">15 unidades</td>
-                        <td>$120.00</td>
-                        <td>Proveedor A</td>
-                    </tr>
-                    <tr>
-                        <td><strong>REP-002</strong></td>
-                        <td>Batería Samsung S21 Ultra</td>
-                        <td>Baterías</td>
-                        <td style="color: #28a745; font-weight: bold;">30 unidades</td>
-                        <td>$45.00</td>
-                        <td>Proveedor B</td>
-                    </tr>
-                    <tr>
-                        <td><strong>REP-003</strong></td>
-                        <td>Placa de Carga Moto G60</td>
-                        <td>Placas</td>
-                        <td style="color: #dc3545; font-weight: bold;">3 unidades</td>
-                        <td>$15.50</td>
-                        <td>Proveedor A</td>
-                    </tr>
-                    <tr>
-                        <td><strong>REP-004</strong></td>
-                        <td>Módulo Display Xiaomi Redmi Note 11</td>
-                        <td>Pantallas</td>
-                        <td style="color: #28a745; font-weight: bold;">22 unidades</td>
-                        <td>$65.00</td>
-                        <td>Proveedor B</td>
-                    </tr>
-                    <tr>
-                        <td><strong>REP-005</strong></td>
-                        <td>Batería iPhone 12 Pro Max</td>
-                        <td>Baterías</td>
-                        <td style="color: #ffc107; font-weight: bold;">7 unidades</td>
-                        <td>$38.00</td>
-                        <td>Proveedor A</td>
-                    </tr>
+                    <?php if(!empty($repuestos) && is_array($repuestos)): ?>
+                        
+                        <?php foreach($repuestos as $repuesto): ?>
+                            <tr>
+                                <td><strong>REP-<?= str_pad($repuesto['id_repuesto'], 3, '0', STR_PAD_LEFT) ?></strong></td>
+                                
+                                <td><?= esc($repuesto['nombre']) ?></td>
+                                
+                                <td><?= esc($repuesto['categoria_nombre'] ?? $repuesto['id_categoria_repuesto']) ?></td>
+                                
+                                <?php 
+                                    $color = '#28a745'; // Verde por defecto (Stock saludable)
+                                    if ($repuesto['cantidad'] <= $repuesto['cantidad_minima']) {
+                                        $color = '#dc3545'; // Rojo (Alerta: Stock crítico o agotado)
+                                    } elseif ($repuesto['cantidad'] <= ($repuesto['cantidad_minima'] + 2)) {
+                                        $color = '#ffc107'; // Amarillo (Advertencia: Cerca del mínimo)
+                                    }
+                                ?>
+
+                                <td><?= esc($repuesto['cantidad_minima']) ?></td>
+                                
+                                <td style="color: <?= $color ?>; font-weight: bold;">
+                                    <?= esc($repuesto['cantidad']) ?> unidades
+                                </td>
+                                
+                                <td>$<?= number_format($repuesto['monto'], 2, '.', ',') ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 20px; color: #666;">
+                                No hay repuestos registrados en el sistema actualmente.
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
