@@ -130,7 +130,7 @@ class Equipos_controller extends BaseController
 
         // El método insert() devuelve true si guardó bien en la BD, o false si falló.
         if ($equipoModel->insert($dataEquipo)) {
-            return redirect()->route('principal')->with('mensaje_success', 'El equipo de ' . $cliente['nombre'] . ' fue ingresado exitosamente.');
+            return redirect()->route('agregar')->with('mensaje_success', 'El equipo de ' . $cliente['nombre'] . ' fue ingresado exitosamente.');
         } else {
             return redirect()->back()->withInput()->with('mensaje_error', 'Ocurrió un error en la base de datos al guardar el equipo.');
         }
@@ -219,7 +219,7 @@ class Equipos_controller extends BaseController
 
         // En lugar de usar $equipoModel->delete(), hace un UPDATE del estado a 0 (inactivo).
         if ($equipoModel->update($id_equipo, ['equipo_estado' => 0])) {
-            return redirect()->route('principal')->with('mensaje_success', 'El equipo fue eliminado correctamente.');
+            return redirect()->route('listado')->with('mensaje_success', 'El equipo fue eliminado con éxito.');
         } else {
             return redirect()->route('listado')->with('mensaje_error', 'Ocurrió un error al intentar eliminar el equipo.');
         }

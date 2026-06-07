@@ -43,9 +43,15 @@ if (isset($modelos)) {
         <div class="registro-card">
             <h2 class="registro-titulo">REGISTRAR EQUIPO</h2>
             
+            <?php if (session()->getFlashdata('mensaje_success')): ?>
+                <div class="alert alert-success my-4" role="alert" style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 12px; border-radius: 6px; text-align: center;">
+                    ✅ <?= session()->getFlashdata('mensaje_success') ?>
+                </div>
+            <?php endif; ?>
+
             <?php if (session()->getFlashdata('mensaje_error')): ?>
-                <div class="alert alert-danger my-4" role="alert">
-                    <?= session()->getFlashdata('mensaje_error') ?>
+                <div class="alert alert-danger my-4" role="alert" style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 12px; border-radius: 6px; text-align: center;">
+                    ⚠️ <?= session()->getFlashdata('mensaje_error') ?>
                 </div>
             <?php endif; ?>
 
