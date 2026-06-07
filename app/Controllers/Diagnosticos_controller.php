@@ -10,7 +10,7 @@ class Diagnosticos_controller extends BaseController
     public function index()
     {
         $equipoModel = new Equipos_model();
-
+        
         $data['equipos'] = $equipoModel->select(
                 'equipo.id_equipo, equipo.nroSerie, tipo_equipo.nombre as tipo_nombre, modelo_equipo.nombre as modelo_nombre, marca.nombre as marca_nombre'
             )

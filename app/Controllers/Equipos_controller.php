@@ -184,7 +184,7 @@ class Equipos_controller extends BaseController
     /**
      * Procesa la edición de un equipo existente, validando los datos y actualizando el registro en la base de datos.
      */
-    public function editarEquipo($id = null)
+    public function editarEquipo($id_equipo = null)
     {
         $request = \Config\Services::request();
         $equipoModel = new \App\Models\Equipos_model();
