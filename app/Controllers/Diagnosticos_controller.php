@@ -31,17 +31,25 @@ class Diagnosticos_controller extends BaseController
 
         $validation->setRules(
             [
-                'id_equipo'   => 'required|numeric',
-                'diagnostico' => 'required|min_length[10]'
+                'id_equipo'      => 'required|numeric',
+                'analisis'       => 'required|min_length[10]',
+                'solucion'       => 'permit_empty|min_length[5]',
+                'costo_estimado' => 'permit_empty|numeric'
             ],
             [
                 'id_equipo' => [
                     'required' => 'Debes seleccionar un equipo registrado.',
                     'numeric'  => 'El equipo seleccionado no es válido.'
                 ],
-                'diagnostico' => [
-                    'required'   => 'El diagnóstico es obligatorio.',
-                    'min_length' => 'El diagnóstico debe tener al menos 10 caracteres.'
+                'analisis' => [
+                    'required'   => 'El análisis es obligatorio.',
+                    'min_length' => 'El análisis debe tener al menos 10 caracteres.'
+                ],
+                'solucion' => [
+                    'min_length' => 'La solución debe tener al menos 5 caracteres.'
+                ],
+                'costo_estimado' => [
+                    'numeric'  => 'El costo estimado debe ser un número válido.'
                 ]
             ]
         );
@@ -65,7 +73,9 @@ class Diagnosticos_controller extends BaseController
         }
 
         $id_equipo = $request->getPost('id_equipo');
-        $diagnostico = $request->getPost('diagnostico');
+        $analisis = $request->getPost('analisis');
+        $solucion = $request->getPost('solucion');
+        $costo_estimado = $request->getPost('costo_estimado');
 
         $equipoModel = new Equipos_model();
         $equipo = $equipoModel->where('id_equipo', $id_equipo)->where('equipo_estado', 1)->first();
@@ -76,8 +86,12 @@ class Diagnosticos_controller extends BaseController
 
         $diagnosticoModel = new Diagnosticos_model();
         $diagnosticoData = [
-            'id_equipo'   => $id_equipo,
-            'diagnostico' => $diagnostico,
+            'id_equipo'        => $id_equipo,
+            'analisis'         => $analisis,
+            'solucion'         => empty($solucion) ? null : $solucion,
+            'costo_estimado'   => empty($costo_estimado) ? null : $costo_estimado,
+            'id_usuario'       => session()->get('id'),
+            'fechaDiagnostico' => date('Y-m-d')
         ];
 
         if ($diagnosticoModel->insert($diagnosticoData)) {

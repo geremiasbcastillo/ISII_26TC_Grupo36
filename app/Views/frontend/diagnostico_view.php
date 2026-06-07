@@ -50,14 +50,39 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="diagnostico">Diagnóstico *</label>
+                    <label for="analisis">Análisis (Diagnóstico) *</label>
                     <?= form_textarea([
-                        'name'        => 'diagnostico',
-                        'id'          => 'diagnostico',
+                        'name'        => 'analisis',
+                        'id'          => 'analisis',
                         'class'       => 'form-control',
                         'rows'        => '5',
-                        'placeholder' => 'Describe el diagnóstico realizado al equipo...',
-                        'value'       => set_value('diagnostico')
+                        'placeholder' => 'Describe el análisis o diagnóstico realizado al equipo...',
+                        'value'       => set_value('analisis')
+                    ]) ?>
+                </div>
+
+                <div class="form-group">
+                    <label for="solucion">Solución Propuesta</label>
+                    <?= form_textarea([
+                        'name'        => 'solucion',
+                        'id'          => 'solucion',
+                        'class'       => 'form-control',
+                        'rows'        => '3',
+                        'placeholder' => 'Describe la solución propuesta (opcional)...',
+                        'value'       => set_value('solucion')
+                    ]) ?>
+                </div>
+
+                <div class="form-group">
+                    <label for="costo_estimado">Costo Estimado ($)</label>
+                    <?= form_input([
+                        'name'        => 'costo_estimado',
+                        'id'          => 'costo_estimado',
+                        'type'        => 'number',
+                        'step'        => '0.01',
+                        'class'       => 'form-control',
+                        'placeholder' => 'Ej: 15000.50',
+                        'value'       => set_value('costo_estimado')
                     ]) ?>
                 </div>
 

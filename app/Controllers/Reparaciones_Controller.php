@@ -153,7 +153,7 @@ public function procesarReparacion()
     {
         // 1. Obtenemos el correo de la sesión actual
         // (Asumo que lo guardaste como 'correo' basándome en tu método de guardar_usuario)
-        $correoDestino = session()->get('correo'); 
+        $correoDestino = session()->get('email'); 
 
         // Si por alguna razón el usuario no tiene correo en sesión, abortamos el envío
         if (empty($correoDestino)) {
