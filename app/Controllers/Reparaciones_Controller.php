@@ -142,43 +142,6 @@ class Reparaciones_Controller extends BaseController
         return view('plantillas/nav_view', $data) . view('frontend/reparacion_view', $data) . view('plantillas/footer_view', $data);
     }
 
-public function procesarReparacion()
-    {
-        $request = \Config\Services::request();
-        $repuestoModel = new \App\Models\Repuestos_model();
-
-        // 1. Recibimos los datos del formulario (qué repuesto se usó y cuánto)
-        $id_repuesto = $request->getPost('id_repuesto');
-        $cantidad_usada = $request->getPost('cantidad_usada');
-
-        // 2. Buscamos el repuesto en la BD
-        $repuesto = $repuestoModel->find($id_repuesto);
-
-        if (!$repuesto) {
-            return redirect()->back()->with('mensaje_error', 'Repuesto no encontrado.');
-        }
-
-        // 3. Calculamos el nuevo stock
-        $nuevo_stock = $repuesto['cantidad'] - $cantidad_usada;
-
-        // Validamos que no quede en negativo
-        if ($nuevo_stock < 0) {
-            return redirect()->back()->with('mensaje_error', 'No hay stock suficiente para esta reparación.');
-        }
-
-        // 4. Actualizamos el stock en la base de datos
-        $repuestoModel->update($id_repuesto, ['cantidad' => $nuevo_stock]);
-
-        // =========================================================
-        // 5. LA MAGIA: EVALUAR STOCK MÍNIMO Y ENVIAR CORREO
-        // =========================================================
-        if ($nuevo_stock <= $repuesto['cantidad_minima']) {
-            $this->enviarAlertaStock($repuesto['nombre'], $nuevo_stock, $repuesto['cantidad_minima']);
-        }
-
-        return redirect()->route('principal')->with('mensaje_success', 'Reparación registrada exitosamente.');
-    }
-
     private function enviarAlertaStock($nombreRepuesto, $stockRestante, $stockMinimo)
     {
         // 1. Obtenemos el correo de la sesión actual
