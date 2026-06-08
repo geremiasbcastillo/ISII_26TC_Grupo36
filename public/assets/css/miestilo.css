@@ -414,3 +414,160 @@ button:hover {
     color: #155724;
     border: 1px solid #c3e6cb;
 }
+
+/* =========================================
+   Estilos para la sección de Repuestos (reparacion_view)
+   ========================================= */
+.repuestos-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.repuesto-item {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.repuesto-info {
+    flex: 1;
+}
+
+.repuesto-nombre {
+    font-weight: bold;
+    color: #333;
+}
+
+.repuesto-stock {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 3px;
+}
+
+.repuesto-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.repuesto-cantidad input {
+    width: 70px;
+    padding: 5px;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.btn-agregar-repuesto {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.btn-agregar-repuesto:hover {
+    background-color: #218838;
+}
+
+.btn-eliminar-repuesto {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s;
+}
+
+.btn-eliminar-repuesto:hover {
+    background-color: #c82333;
+}
+
+.repuestos-seleccionados {
+    margin-top: 20px;
+}
+
+.repuesto-seleccionado-item {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.repuesto-seleccionado-info {
+    flex: 1;
+}
+
+.repuesto-seleccionado-nombre {
+    font-weight: bold;
+    color: #155724;
+}
+
+.repuesto-seleccionado-cantidad {
+    font-size: 0.9em;
+    color: #155724;
+    margin-top: 3px;
+}
+
+/* Clases creadas a partir de estilos inline del HTML */
+.repuestos-selector-wrapper {
+    margin-bottom: 15px;
+}
+
+.repuesto-label-select {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.repuestos-input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.repuesto-select {
+    flex: 1;
+}
+
+.repuestos-action-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.repuesto-input-col {
+    flex: 1;
+}
+
+.repuesto-label-cantidad {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.repuestos-agregados-titulo {
+    color: #333 !important;
+    margin-bottom: 10px;
+}
+
+.repuesto-vacio-msg {
+    color: #999;
+    font-style: italic;
+}

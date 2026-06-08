@@ -5,116 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= base_url('public/assets/css/miestilo.css') ?>" rel="stylesheet">
-    <style>
-        .repuestos-container {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .repuesto-item {
-            background-color: white;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .repuesto-info {
-            flex: 1;
-        }
-        
-        .repuesto-nombre {
-            font-weight: bold;
-            color: #333;
-        }
-        
-        .repuesto-stock {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 3px;
-        }
-        
-        .repuesto-cantidad {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .repuesto-cantidad input {
-            width: 70px;
-            padding: 5px;
-            border: 1px solid #dee2e6;
-            border-radius: 3px;
-            text-align: center;
-        }
-        
-        .btn-agregar-repuesto {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-agregar-repuesto:hover {
-            background-color: #218838;
-        }
-        
-        .btn-eliminar-repuesto {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 6px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 0.85em;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-eliminar-repuesto:hover {
-            background-color: #c82333;
-        }
-        
-        .repuestos-seleccionados {
-            margin-top: 20px;
-        }
-        
-        .repuesto-seleccionado-item {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .repuesto-seleccionado-info {
-            flex: 1;
-        }
-        
-        .repuesto-seleccionado-nombre {
-            font-weight: bold;
-            color: #155724;
-        }
-        
-        .repuesto-seleccionado-cantidad {
-            font-size: 0.9em;
-            color: #155724;
-            margin-top: 3px;
-        }
-    </style>
+
 </head>
 <body>
     <?php if(isset($validation) && !empty($validation)): ?>
@@ -177,10 +68,10 @@
                     <label>Repuestos Utilizados *</label>
                     
                     <div class="repuestos-container">
-                        <div style="margin-bottom: 15px;">
-                            <label for="id_repuesto" style="display: block; margin-bottom: 8px;">Seleccionar Repuesto:</label>
-                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-                                <select id="id_repuesto" class="form-control" style="flex: 1;">
+                        <div class="repuestos-selector-wrapper">
+                            <label for="id_repuesto" class="repuesto-label-select">Seleccionar Repuesto:</label>
+                            <div class="repuestos-input-row">
+                                <select id="id_repuesto" class="form-control repuesto-select">
                                     <option value="" disabled selected>Seleccione un repuesto...</option>
                                     <?php if (!empty($repuestos)): ?>
                                         <?php foreach ($repuestos as $repuesto): ?>
@@ -192,9 +83,9 @@
                                 </select>
                             </div>
 
-                            <div style="display: flex; gap: 10px; align-items: flex-end;">
-                                <div style="flex: 1;">
-                                    <label for="cantidad_repuesto" style="display: block; margin-bottom: 5px;">Cantidad Utilizada:</label>
+                            <div class="repuestos-action-row">
+                                <div class="repuesto-input-col">
+                                    <label for="cantidad_repuesto" class="repuesto-label-cantidad">Cantidad Utilizada:</label>
                                     <input type="number" id="cantidad_repuesto" class="form-control" min="1" value="1" placeholder="Cantidad">
                                 </div>
                                 <button type="button" class="btn-agregar-repuesto" onclick="agregarRepuesto()">Agregar Repuesto</button>
@@ -203,7 +94,7 @@
 
                         <!-- Lista de repuestos seleccionados -->
                         <div id="repuestosSeleccionados" class="repuestos-seleccionados">
-                            <h5 style="color: #333; margin-bottom: 10px;">Repuestos Agregados:</h5>
+                            <h5 class="repuestos-agregados-titulo">Repuestos Agregados:</h5>
                             <div id="listaRepuestos"></div>
                         </div>
                     </div>
@@ -279,7 +170,7 @@
             const jsonInput = document.getElementById('repuestos_json');
 
             if (repuestosSeleccionados.length === 0) {
-                listaDiv.innerHTML = '<p style="color: #999; font-style: italic;">No hay repuestos agregados</p>';
+                listaDiv.innerHTML = '<p class="repuesto-vacio-msg">No hay repuestos agregados</p>';
             } else {
                 listaDiv.innerHTML = repuestosSeleccionados.map(repuesto => `
                     <div class="repuesto-seleccionado-item">
