@@ -68,6 +68,7 @@ class Diagnosticos_controller extends BaseController
 
             $data['titulo'] = 'Diagnóstico';
             $data['validation'] = $validation->getErrors();
+            $data['mensaje_error'] = 'Corrige los campos obligatorios.';
 
             return view('plantillas/nav_view', $data) . view('frontend/diagnostico_view', $data) . view('plantillas/footer_view', $data);
         }
@@ -95,7 +96,7 @@ class Diagnosticos_controller extends BaseController
         ];
 
         if ($diagnosticoModel->insert($diagnosticoData)) {
-            return redirect()->route('diagnostico')->with('mensaje_success', 'Diagnóstico guardado correctamente.');
+            return redirect()->to(base_url('diagnostico'))->with('mensaje_success', 'Diagnóstico guardado correctamente.');
         }
 
         return redirect()->back()->withInput()->with('mensaje_error', 'Ocurrió un error al guardar el diagnóstico.');

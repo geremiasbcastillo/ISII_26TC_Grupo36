@@ -17,7 +17,7 @@ if (isset($categorias)) {
 
 <body>
     <?php if(isset($validation)): ?>
-        <div class="alert alert-danger" style="color: #ff4d4d; margin-bottom: 15px;">
+        <div class="flash flash-error" role="alert">
             <ul>
                 <?php foreach($validation as $error):?>
                     <li><?= esc($error) ?></li>
@@ -32,13 +32,13 @@ if (isset($categorias)) {
             <h2 class="registro-titulo">REGISTRAR REPUESTO</h2>
             
             <?php if (session()->getFlashdata('mensaje_error')): ?>
-                <div class="alert alert-danger my-4" role="alert">
+                <div class="flash flash-error" role="alert">
                     <?= session()->getFlashdata('mensaje_error') ?>
                 </div>
             <?php endif; ?>
 
             <?php if (session()->getFlashdata('mensaje_success')): ?>
-                <div class="alert alert-success my-4" role="alert" style="color: green;">
+                <div class="flash flash-success" role="alert">
                     <?= session()->getFlashdata('mensaje_success') ?>
                 </div>
             <?php endif; ?>

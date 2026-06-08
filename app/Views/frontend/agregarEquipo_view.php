@@ -30,7 +30,7 @@ if (isset($modelos)) {
 
 <body>
     <?php if(isset($validation)): ?>
-        <div class="alert alert-danger" style="color: #ff4d4d; margin-bottom: 15px;">
+        <div class="flash flash-error" role="alert">
             <ul>
                 <?php foreach($validation as $error):?>
                     <li><?= esc($error) ?></li>
@@ -44,13 +44,13 @@ if (isset($modelos)) {
             <h2 class="registro-titulo">REGISTRAR EQUIPO</h2>
             
             <?php if (session()->getFlashdata('mensaje_success')): ?>
-                <div class="alert alert-success my-4" role="alert" style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 12px; border-radius: 6px; text-align: center;">
+                <div class="flash flash-success" role="alert" style="text-align: center;">
                     ✅ <?= session()->getFlashdata('mensaje_success') ?>
                 </div>
             <?php endif; ?>
 
             <?php if (session()->getFlashdata('mensaje_error')): ?>
-                <div class="alert alert-danger my-4" role="alert" style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 12px; border-radius: 6px; text-align: center;">
+                <div class="flash flash-error" role="alert" style="text-align: center;">
                     ⚠️ <?= session()->getFlashdata('mensaje_error') ?>
                 </div>
             <?php endif; ?>
@@ -60,12 +60,13 @@ if (isset($modelos)) {
                 <div class="form-group" style="background-color: #f0f7ff; padding: 15px; border-radius: 6px; margin-bottom: 25px;">
                     <label for="dni_cliente" style="color: #004494;">DNI del Cliente *</label>
                     <?= form_input([
-                        'name'        => 'dni_cliente', 
-                        'id'          => 'dni_cliente', 
-                        'type'        => 'number', 
-                        'class'       => 'form-control', 
-                        'placeholder' => 'Ingrese el DNI para verificar...'
-                    ]) ?>
+                            'name'        => 'dni_cliente', 
+                            'id'          => 'dni_cliente', 
+                            'type'        => 'number', 
+                            'class'       => 'form-control', 
+                            'placeholder' => 'Ingrese el DNI para verificar...',
+                            'required'    => 'required'
+                        ]) ?>
                     <small style="color: #666; margin-top: 5px;">El sistema verificará que el cliente exista antes de registrar el equipo.</small>
                 </div>
 
@@ -74,7 +75,8 @@ if (isset($modelos)) {
                         <label for="id_tipo">Tipo de equipo *</label>
                         <?= form_dropdown('id_tipo', $opcionesTipos, '', [
                             'id'       => 'id_tipo',
-                            'class'    => 'form-control'
+                            'class'    => 'form-control',
+                            'required' => 'required'
                         ]) ?>
                     </div>
                     <div class="form-group">
@@ -84,7 +86,8 @@ if (isset($modelos)) {
                             'id'          => 'nroSerie', 
                             'type'        => 'number', 
                             'class'       => 'form-control', 
-                            'placeholder' => 'N° de serie del fabricante'
+                            'placeholder' => 'N° de serie del fabricante',
+                            'required'    => 'required'
                         ]) ?>
                     </div>
                 </div>
@@ -94,13 +97,14 @@ if (isset($modelos)) {
                         <label for="id_marca">Marca *</label>
                         <?= form_dropdown('id_marca', $opcionesMarcas, '', [
                             'id'       => 'id_marca',
-                            'class'    => 'form-control'
+                            'class'    => 'form-control',
+                            'required' => 'required'
                         ]) ?>
                     </div>
                 
                     <div class="form-group">
                         <label for="id_modelo">Modelo *</label>
-                        <select id="id_modelo" name="id_modelo" class="form-control" >
+                        <select id="id_modelo" name="id_modelo" class="form-control" required>
                             <option value="" disabled selected>Seleccione primero una marca...</option>
                             
                             <?php foreach($modelos as $modelo): ?>
@@ -115,12 +119,13 @@ if (isset($modelos)) {
 
                 <div class="form-group">
                     <label for="falla">Falla reportada (Problema) *</label>
-                    <?= form_textarea([
+                        <?= form_textarea([
                         'name'        => 'falla', 
                         'id'          => 'falla', 
                         'class'       => 'form-control', 
                         'rows'        => '3',
-                        'placeholder' => 'Descripción detallada de la falla...'
+                        'placeholder' => 'Descripción detallada de la falla...',
+                        'required'    => 'required'
                     ]) ?>
                 </div>
 
@@ -131,7 +136,8 @@ if (isset($modelos)) {
                             'name'        => 'fechaIngreso', 
                             'id'          => 'fechaIngreso', 
                             'type'        => 'date', 
-                            'class'       => 'form-control'
+                            'class'       => 'form-control',
+                            'required'    => 'required'
                         ]) ?>
                     </div>
                 </div>

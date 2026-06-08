@@ -12,13 +12,13 @@
             <h3 class="tabla-titulo"><?= esc($titulo) ?></h3>
 
             <?php if (session()->getFlashdata('mensaje_success')): ?>
-                <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #c3e6cb; text-align: center;">
+                <div class="flash flash-success" role="alert" style="text-align: center;">
                     ✅ <?= session()->getFlashdata('mensaje_success') ?>
                 </div>
             <?php endif; ?>
 
             <?php if (session()->getFlashdata('mensaje_error')): ?>
-                <div style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #f5c6cb; text-align: center;">
+                <div class="flash flash-error" role="alert" style="text-align: center;">
                     ⚠️ <?= session()->getFlashdata('mensaje_error') ?>
                 </div>
             <?php endif; ?>

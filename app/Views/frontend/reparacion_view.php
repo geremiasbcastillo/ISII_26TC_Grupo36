@@ -118,7 +118,7 @@
 </head>
 <body>
     <?php if(isset($validation) && !empty($validation)): ?>
-        <div class="alert alert-danger" style="color: #ff4d4d; margin-bottom: 15px;">
+        <div class="flash flash-error" role="alert">
             <ul>
                 <?php foreach($validation as $error): ?>
                     <li><?= esc($error) ?></li>
@@ -128,14 +128,15 @@
     <?php endif; ?>
 
     <?php if (session()->getFlashdata('mensaje_error')): ?>
-        <div class="alert alert-danger my-4" role="alert">
+        <div class="flash flash-error" role="alert">
             <?= session()->getFlashdata('mensaje_error') ?>
         </div>
     <?php endif; ?>
 
-    <?php if (session()->getFlashdata('mensaje_success')): ?>
-        <div class="alert alert-success my-4" role="alert">
-            <?= session()->getFlashdata('mensaje_success') ?>
+    <?php $mensajeSuccess = session()->getFlashdata('mensaje_success') ?? ($mensaje_success ?? null); ?>
+    <?php if (!empty($mensajeSuccess)): ?>
+        <div class="flash flash-success" role="alert">
+            <?= esc($mensajeSuccess) ?>
         </div>
     <?php endif; ?>
 

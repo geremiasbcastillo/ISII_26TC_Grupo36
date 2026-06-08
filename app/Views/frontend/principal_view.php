@@ -5,13 +5,13 @@
         </h2>
         
         <?php if (session()->getFlashdata('mensaje_success')): ?>
-            <div class="alert alert-success" style="color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; padding: 12px; border-radius: 6px; margin: 20px 0; text-align: center;">
+            <div class="flash flash-success" role="alert" style="text-align: center; margin: 20px 0;">
                 ✅ <?= session()->getFlashdata('mensaje_success') ?>
             </div>
         <?php endif; ?>
 
         <?php if (session()->getFlashdata('mensaje_error')): ?>
-            <div class="alert alert-danger" style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 12px; border-radius: 6px; margin: 20px 0; text-align: center;">
+            <div class="flash flash-error" role="alert" style="text-align: center; margin: 20px 0;">
                 ⚠️ <?= session()->getFlashdata('mensaje_error') ?>
             </div>
         <?php endif; ?>

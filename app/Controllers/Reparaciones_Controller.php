@@ -109,7 +109,37 @@ class Reparaciones_Controller extends BaseController
             'equipo_estado' => 0
         ]);
 
-        return redirect('tecnico')->with('mensaje_success', 'Reparación registrada exitosamente. El equipo ha sido marcado como reparado.');
+        // Obtener los datos actualizados para la vista
+        $equiposModel = new Equipos_model();
+        $repuestosModel = new Repuestos_Model();
+        $diagnosticosModel = new Diagnosticos_model();
+
+        $equiposDiagnosticados = $diagnosticosModel->distinct()->select('id_equipo')->findAll();
+        $equiposDiagnosticadosIds = array_column($equiposDiagnosticados, 'id_equipo');
+
+        $equipos = $equiposModel->select('equipo.id_equipo, equipo.nroSerie, equipo.equipo_estado, 
+                                         tipo_equipo.nombre as tipo_nombre, 
+                                         marca.nombre as marca_nombre, 
+                                         modelo_equipo.nombre as modelo_nombre')
+                                ->join('tipo_equipo', 'tipo_equipo.id_tipo = equipo.id_tipo')
+                                ->join('modelo_equipo', 'modelo_equipo.id_modelo = equipo.id_modelo')
+                                ->join('marca', 'marca.id_marca = modelo_equipo.id_marca')
+                                ->where('equipo.equipo_estado', 1)
+                                ->whereIn('equipo.id_equipo', !empty($equiposDiagnosticadosIds) ? $equiposDiagnosticadosIds : [0])
+                                ->findAll();
+
+        $repuestos = $repuestosModel->select('id_repuesto, nombre, cantidad')
+                                    ->where('cantidad >', 0)
+                                    ->findAll();
+
+        $data = [
+            'equipos' => $equipos,
+            'repuestos' => $repuestos,
+            'titulo' => 'Reparación',
+            'mensaje_success' => 'Reparación registrada exitosamente. El equipo ha sido marcado como reparado.'
+        ];
+
+        return view('plantillas/nav_view', $data) . view('frontend/reparacion_view', $data) . view('plantillas/footer_view', $data);
     }
 
 public function procesarReparacion()

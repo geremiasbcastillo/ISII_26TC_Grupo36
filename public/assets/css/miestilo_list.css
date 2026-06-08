@@ -103,3 +103,29 @@
     max-width: 600px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
+
+/* Mensajes flash compartidos con el resto del sitio */
+.flash {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 900px;
+    width: calc(100% - 40px);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    z-index: 11010;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}

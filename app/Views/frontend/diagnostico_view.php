@@ -7,25 +7,28 @@
     <link href="<?= base_url('public/assets/css/miestilo.css') ?>" rel="stylesheet">
 </head>
 <body>
-    <?php if(isset($validation) && !empty($validation)): ?>
-        <div class="alert alert-danger" style="color: #ff4d4d; margin-bottom: 15px;">
+    <?php $validationErrors = session()->getFlashdata('validation') ?? ($validation ?? []); ?>
+    <?php if (!empty($validationErrors)): ?>
+        <div class="flash flash-error" role="alert">
             <ul>
-                <?php foreach($validation as $error): ?>
+                <?php foreach($validationErrors as $error): ?>
                     <li><?= esc($error) ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
     <?php endif; ?>
 
-    <?php if (session()->getFlashdata('mensaje_error')): ?>
-        <div class="alert alert-danger my-4" role="alert">
-            <?= session()->getFlashdata('mensaje_error') ?>
+    <?php $mensajeError = session()->getFlashdata('mensaje_error') ?? ($mensaje_error ?? null); ?>
+    <?php if (!empty($mensajeError)): ?>
+        <div class="flash flash-error" role="alert">
+            <?= esc($mensajeError) ?>
         </div>
     <?php endif; ?>
 
-    <?php if (session()->getFlashdata('mensaje_success')): ?>
-        <div class="alert alert-success my-4" role="alert">
-            <?= session()->getFlashdata('mensaje_success') ?>
+    <?php $mensajeSuccess = session()->getFlashdata('mensaje_success') ?? ($mensaje_success ?? null); ?>
+    <?php if (!empty($mensajeSuccess)): ?>
+        <div class="flash flash-success" role="alert">
+            <?= esc($mensajeSuccess) ?>
         </div>
     <?php endif; ?>
 
@@ -53,11 +56,12 @@
                     <label for="analisis">Análisis (Diagnóstico) *</label>
                     <?= form_textarea([
                         'name'        => 'analisis',
-                        'id'          => 'analisis',
-                        'class'       => 'form-control',
-                        'rows'        => '5',
-                        'placeholder' => 'Describe el análisis o diagnóstico realizado al equipo...',
-                        'value'       => set_value('analisis')
+                            'id'          => 'analisis',
+                            'class'       => 'form-control',
+                            'rows'        => '5',
+                            'placeholder' => 'Describe el análisis o diagnóstico realizado al equipo...',
+                            'required'    => 'required',
+                            'value'       => set_value('analisis')
                     ]) ?>
                 </div>
 

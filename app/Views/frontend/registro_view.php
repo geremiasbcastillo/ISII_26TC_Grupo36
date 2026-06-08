@@ -15,7 +15,7 @@
         <h2>Registrar Usuario</h2>
 
         <?php if(isset($validation)): ?>
-            <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #f5c6cb; font-size: 14px;">
+            <div class="flash flash-error" role="alert">
                 <ul style="margin: 0; padding-left: 20px;">
                     <?php foreach($validation as $error):?>
                         <li><?= esc($error) ?></li>
@@ -25,13 +25,13 @@
         <?php endif; ?>
 
         <?php if (session()->getFlashdata('mensaje_error')): ?>
-            <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #f5c6cb;">
+            <div class="flash flash-error" role="alert">
                 <?= session()->getFlashdata('mensaje_error') ?>
             </div>
         <?php endif; ?>
 
         <?php if (session()->getFlashdata('mensaje_exito')): ?>
-            <div class="alert alert-success" style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #c3e6cb;">
+            <div class="flash flash-success" role="alert">
                 <?= session()->getFlashdata('mensaje_exito') ?>
             </div>
         <?php endif; ?>

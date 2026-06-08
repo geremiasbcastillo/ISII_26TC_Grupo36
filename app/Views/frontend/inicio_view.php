@@ -12,7 +12,7 @@
             <h2>Iniciar Sesión</h2>
             
             <?php if(isset($validation)): ?>
-                <div class="alert alert-danger">
+                <div class="flash flash-error" role="alert">
                     <ul>
                         <?php foreach($validation as $error):?>
                             <li><?= esc($error) ?></li>
