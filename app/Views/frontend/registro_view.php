@@ -39,19 +39,19 @@
         <?php echo form_open('guardar_usuario')?>
             
             <div class="input-group">
-                <?php echo form_input(['name'=>'nombre', 'id'=>'nombre', 'type'=>'text', 'class'=>'form-control', 'placeholder'=>'Nombre', 'required'=>'required']);?>
+                <?php echo form_input(['name'=>'nombre', 'id'=>'nombre', 'type'=>'text', 'class'=>'form-control', 'placeholder'=>'Nombre']);?>
             </div>
 
             <div class="input-group">
-                <?php echo form_input(['name'=>'apellido', 'id'=>'apellido', 'type'=>'text', 'class'=>'form-control', 'placeholder'=>'Apellido', 'required'=>'required']);?>
+                <?php echo form_input(['name'=>'apellido', 'id'=>'apellido', 'type'=>'text', 'class'=>'form-control', 'placeholder'=>'Apellido']);?>
             </div>
 
             <div class="input-group">
-                <?php echo form_input(['name'=>'dni', 'id'=>'dni', 'type'=>'text', 'class'=>'form-control', 'placeholder'=>'DNI', 'required'=>'required']);?>
+                <?php echo form_input(['name'=>'dni', 'id'=>'dni', 'type'=>'text', 'class'=>'form-control', 'placeholder'=>'DNI']);?>
             </div>
 
             <div class="input-group">
-                <?php echo form_input(['name'=>'correo', 'id'=>'correo', 'type'=>'email', 'class'=>'form-control', 'placeholder'=>'correo@ejemplo.com', 'required'=>'required']);?>
+                <?php echo form_input(['name'=>'correo', 'id'=>'correo', 'type'=>'email', 'class'=>'form-control', 'placeholder'=>'correo@ejemplo.com']);?>
             </div>
 
             <div class="input-group">
@@ -61,12 +61,12 @@
                         'Administrador' => 'Administrador',
                         'Tecnico'       => 'Técnico',
                     ];
-                    echo form_dropdown('rol', $options, '', ['class' => 'form-control', 'required' => 'required', 'style' => 'background-color: white; color: black;']);
+                    echo form_dropdown('rol', $options, '', ['class' => 'form-control', 'style' => 'background-color: white; color: black;']);
                 ?>
             </div>
             
             <div class="input-group">
-                <?php echo form_input(['name'=>'contrasena', 'id'=>'contrasena', 'type'=>'password', 'class'=>'form-control', 'placeholder'=>'Contraseña', 'required'=>'required']);?>
+                <?php echo form_input(['name'=>'contrasena', 'id'=>'contrasena', 'type'=>'password', 'class'=>'form-control', 'placeholder'=>'Contraseña']);?>
             </div>
 
             <?php echo form_submit('Registrar', 'Registrar');?>

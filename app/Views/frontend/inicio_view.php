@@ -12,12 +12,17 @@
             <h2>Iniciar Sesión</h2>
             
             <?php if(isset($validation)): ?>
-                <div class="flash flash-error" role="alert">
+                <div class="flash flash-error" role="alert" style="text-align: center;">
                     <ul>
                         <?php foreach($validation as $error):?>
                             <li><?= esc($error) ?></li>
                         <?php endforeach;?>
                     </ul>
+                </div>
+            <?php endif; ?>
+            <?php if (session()->getFlashdata('mensaje_error')): ?>
+                <div class="flash flash-error" role="alert" style="text-align: center;">
+                    <?= session()->getFlashdata('mensaje_error') ?>
                 </div>
             <?php endif; ?>
         
