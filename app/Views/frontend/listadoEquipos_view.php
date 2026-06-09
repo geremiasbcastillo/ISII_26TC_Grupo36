@@ -147,7 +147,7 @@
         </div>
     </div>
     <div class="form-acciones">
-        <button type="button" class="btn-outline" style="width: auto; min-width: 150px;" onclick="window.history.back();">Atrás</button>
+        <button type="button" class="btn-outline" style="width: auto; min-width: 150px;" onclick="window.location.href='<?= base_url('principal') ?>';">Atrás</button>
     </div>
     <script src="<?= base_url('public/assets/js/modificar_equipos.js') ?>"></script>
 </body>
