@@ -29,31 +29,34 @@ if (isset($modelos)) {
 </head>
 
 <body>
-    <?php if(isset($validation)): ?>
+    <?php 
+    $validationErrors = session()->getFlashdata('validation') ?? ($validation ?? []); 
+    $mensajeError = session()->getFlashdata('mensaje_error') ?? ($mensaje_error ?? null); 
+    ?>
+    <?php if (!empty($validationErrors) || !empty($mensajeError)): ?>
         <div class="flash flash-error" role="alert">
-            <ul>
-                <?php foreach($validation as $error):?>
-                    <li><?= esc($error) ?></li>
-                <?php endforeach;?>
-            </ul>
+            <?php if (!empty($mensajeError)): ?>
+                <div style="font-weight: bold; margin-bottom: 5px;">⚠️ <?= esc($mensajeError) ?></div>
+            <?php endif; ?>
+            <?php if (!empty($validationErrors)): ?>
+                <ul>
+                    <?php foreach($validationErrors as $error): ?>
+                        <li><?= esc($error) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('mensaje_success')): ?>
+        <div class="flash flash-success" role="alert" style="text-align: center;">
+            ✅ <?= session()->getFlashdata('mensaje_success') ?>
         </div>
     <?php endif; ?>
 
     <div class="registro-container">
         <div class="registro-card">
             <h2 class="registro-titulo">REGISTRAR EQUIPO</h2>
-            
-            <?php if (session()->getFlashdata('mensaje_success')): ?>
-                <div class="flash flash-success" role="alert" style="text-align: center;">
-                    ✅ <?= session()->getFlashdata('mensaje_success') ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if (session()->getFlashdata('mensaje_error')): ?>
-                <div class="flash flash-error" role="alert" style="text-align: center;">
-                    ⚠️ <?= session()->getFlashdata('mensaje_error') ?>
-                </div>
-            <?php endif; ?>
 
             <?= form_open('registrar_equipo', ['class' => 'registro-form']) ?>
                 
@@ -143,7 +146,7 @@ if (isset($modelos)) {
                 </div>
 
                 <div class="form-acciones">
-                    <button type="button" class="btn-outline" onclick="window.history.back();">Cancelar</button>
+                    <button type="button" class="btn-outline" onclick="window.location.href='<?= base_url('principal') ?>';">Cancelar</button>
                     <?= form_submit('submit', 'Registrar Equipo', ['class' => 'btn-solid']) ?>
                 </div>
 

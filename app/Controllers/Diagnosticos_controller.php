@@ -10,15 +10,25 @@ class Diagnosticos_controller extends BaseController
     public function index()
     {
         $equipoModel = new Equipos_model();
+        $diagnosticosModel = new Diagnosticos_model();
         
-        $data['equipos'] = $equipoModel->select(
+        // Obtener los IDs de equipos que ya tienen un diagnóstico
+        $equiposDiagnosticados = $diagnosticosModel->distinct()->select('id_equipo')->findAll();
+        $equiposDiagnosticadosIds = array_column($equiposDiagnosticados, 'id_equipo');
+
+        $query = $equipoModel->select(
                 'equipo.id_equipo, equipo.nroSerie, tipo_equipo.nombre as tipo_nombre, modelo_equipo.nombre as modelo_nombre, marca.nombre as marca_nombre'
             )
             ->join('tipo_equipo', 'tipo_equipo.id_tipo = equipo.id_tipo')
             ->join('modelo_equipo', 'modelo_equipo.id_modelo = equipo.id_modelo')
             ->join('marca', 'marca.id_marca = modelo_equipo.id_marca')
-            ->where('equipo.equipo_estado', 1)
-            ->findAll();
+            ->where('equipo.equipo_estado', 1);
+
+        if (!empty($equiposDiagnosticadosIds)) {
+            $query->whereNotIn('equipo.id_equipo', $equiposDiagnosticadosIds);
+        }
+
+        $data['equipos'] = $query->findAll();
 
         $data['titulo'] = 'Diagnóstico';
         return view('plantillas/nav_view', $data) . view('frontend/diagnostico_view', $data) . view('plantillas/footer_view', $data);
@@ -56,15 +66,25 @@ class Diagnosticos_controller extends BaseController
 
         if (!$validation->withRequest($request)->run()) {
             $equipoModel = new Equipos_model();
+            $diagnosticosModel = new Diagnosticos_model();
 
-            $data['equipos'] = $equipoModel->select(
+            // Obtener los IDs de equipos que ya tienen un diagnóstico
+            $equiposDiagnosticados = $diagnosticosModel->distinct()->select('id_equipo')->findAll();
+            $equiposDiagnosticadosIds = array_column($equiposDiagnosticados, 'id_equipo');
+
+            $query = $equipoModel->select(
                     'equipo.id_equipo, equipo.nroSerie, tipo_equipo.nombre as tipo_nombre, modelo_equipo.nombre as modelo_nombre, marca.nombre as marca_nombre'
                 )
                 ->join('tipo_equipo', 'tipo_equipo.id_tipo = equipo.id_tipo')
                 ->join('modelo_equipo', 'modelo_equipo.id_modelo = equipo.id_modelo')
                 ->join('marca', 'marca.id_marca = modelo_equipo.id_marca')
-                ->where('equipo.equipo_estado', 1)
-                ->findAll();
+                ->where('equipo.equipo_estado', 1);
+
+            if (!empty($equiposDiagnosticadosIds)) {
+                $query->whereNotIn('equipo.id_equipo', $equiposDiagnosticadosIds);
+            }
+
+            $data['equipos'] = $query->findAll();
 
             $data['titulo'] = 'Diagnóstico';
             $data['validation'] = $validation->getErrors();

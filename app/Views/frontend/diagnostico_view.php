@@ -7,21 +7,22 @@
     <link href="<?= base_url('public/assets/css/miestilo.css') ?>" rel="stylesheet">
 </head>
 <body>
-    <?php $validationErrors = session()->getFlashdata('validation') ?? ($validation ?? []); ?>
-    <?php if (!empty($validationErrors)): ?>
+    <?php 
+    $validationErrors = session()->getFlashdata('validation') ?? ($validation ?? []); 
+    $mensajeError = session()->getFlashdata('mensaje_error') ?? ($mensaje_error ?? null); 
+    ?>
+    <?php if (!empty($validationErrors) || !empty($mensajeError)): ?>
         <div class="flash flash-error" role="alert">
-            <ul>
-                <?php foreach($validationErrors as $error): ?>
-                    <li><?= esc($error) ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
-
-    <?php $mensajeError = session()->getFlashdata('mensaje_error') ?? ($mensaje_error ?? null); ?>
-    <?php if (!empty($mensajeError)): ?>
-        <div class="flash flash-error" role="alert">
-            <?= esc($mensajeError) ?>
+            <?php if (!empty($mensajeError)): ?>
+                <div style="font-weight: bold; margin-bottom: 5px;"><?= esc($mensajeError) ?></div>
+            <?php endif; ?>
+            <?php if (!empty($validationErrors)): ?>
+                <ul>
+                    <?php foreach($validationErrors as $error): ?>
+                        <li><?= esc($error) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 
@@ -91,7 +92,7 @@
                 </div>
 
                 <div class="form-acciones">
-                    <button type="button" class="btn-outline" onclick="window.history.back();">Cancelar</button>
+                    <button type="button" class="btn-outline" onclick="window.location.href='<?= base_url('tecnico') ?>';">Cancelar</button>
                     <?= form_submit('submit', 'Guardar Diagnóstico', ['class' => 'btn-solid']) ?>
                 </div>
 

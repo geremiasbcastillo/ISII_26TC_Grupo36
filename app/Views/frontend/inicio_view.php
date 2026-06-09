@@ -11,18 +11,22 @@
         <div class="login-box">
             <h2>Iniciar Sesión</h2>
             
-            <?php if(isset($validation)): ?>
+            <?php 
+            $validationErrors = session()->getFlashdata('validation') ?? ($validation ?? []); 
+            $mensajeError = session()->getFlashdata('mensaje_error') ?? ($mensaje_error ?? null); 
+            ?>
+            <?php if (!empty($validationErrors) || !empty($mensajeError)): ?>
                 <div class="flash flash-error" role="alert" style="text-align: center;">
-                    <ul>
-                        <?php foreach($validation as $error):?>
-                            <li><?= esc($error) ?></li>
-                        <?php endforeach;?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-            <?php if (session()->getFlashdata('mensaje_error')): ?>
-                <div class="flash flash-error" role="alert" style="text-align: center;">
-                    <?= session()->getFlashdata('mensaje_error') ?>
+                    <?php if (!empty($mensajeError)): ?>
+                        <div style="font-weight: bold; margin-bottom: 5px;"><?= esc($mensajeError) ?></div>
+                    <?php endif; ?>
+                    <?php if (!empty($validationErrors)): ?>
+                        <ul style="margin: 0; padding: 0; list-style-type: none;">
+                            <?php foreach($validationErrors as $error): ?>
+                                <li><?= esc($error) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         
