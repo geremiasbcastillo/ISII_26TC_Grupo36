@@ -141,28 +141,26 @@ class Usuarios_controller extends BaseController
         $rol = $request->getPost('rol');
         $contrasena = $request->getPost('contrasena');
 
-        // Mapeamos rol texto a ID
-        $rol_id = ($rol === 'Administrador') ? 1 : 2; // 1 = Admin, 2 = Técnico
-        
-        // Cargamos los datos en un arreglo para insertar en la base de datos.
-        $data_registro = [
-            'nombre'      => $nombre,
-            'apellido'    => $apellido,
-            'dni'         => $dni,
-            'email'       => $correo,
-            'contrasena'  => $contrasena, // En producción usar hash: password_hash($contrasena, PASSWORD_DEFAULT)
-            'id_rol'      => $rol_id
-        ];
+        try {
+            // Instanciamos el usuario correspondiente usando la fábrica
+            $usuario = \App\Libraries\UsuarioFactory::crearUsuario($rol, [
+                'nombre'     => $nombre,
+                'apellido'   => $apellido,
+                'dni'        => $dni,
+                'correo'     => $correo,
+                'contrasena' => $contrasena
+            ]);
 
-        $model = new \App\Models\Usuarios_model();
-        
-        // El método insert() devuelve true si guardó bien en la BD, o false si falló.
-        if ($model->insert($data_registro)) {
-            // Éxito
-            return redirect()->route('inicio')->with('mensaje_exito', '¡Usuario registrado correctamente! Por favor inicia sesión.');
-        } else {
-            // Error al insertar
-            return redirect()->route('registro')->with('mensaje_error', 'Error al registrar el usuario. Intenta de nuevo.');
+            // Delegamos la persistencia en la propia instancia del usuario
+            if ($usuario->guardarUsuario()) {
+                // Éxito
+                return redirect()->route('inicio')->with('mensaje_exito', '¡Usuario registrado correctamente! Por favor inicia sesión.');
+            } else {
+                // Error al insertar
+                return redirect()->route('registro')->with('mensaje_error', 'Error al registrar el usuario. Intenta de nuevo.');
+            }
+        } catch (\InvalidArgumentException $e) {
+            return redirect()->route('registro')->with('mensaje_error', $e->getMessage());
         }
     }
     
