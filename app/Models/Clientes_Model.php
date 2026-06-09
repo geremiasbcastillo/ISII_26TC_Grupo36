@@ -20,4 +20,9 @@ class Clientes_Model extends Model
     protected $createdField  = '';
     protected $updatedField  = '';
     protected $validationRules = [];
-} 
+
+    public function buscarPorDni($dni)
+    {
+        return $this->where('dni', $dni)->first();
+    }
+}

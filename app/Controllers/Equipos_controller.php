@@ -99,8 +99,9 @@ class Equipos_controller extends BaseController
         $fecha       = $request->getPost('fechaIngreso');
         $equipo_estado = 1; // 1 para activo, 0 para inactivo
 
-        // Verificación del DNI contra la tabla `cliente` usando el metodo verficarDni(dni)
-        $cliente = $this->verficarDni($dni_cliente);
+        // Verificación del DNI contra la tabla `cliente`
+        $clienteModel = new \App\Models\Clientes_Model();
+        $cliente = $clienteModel->buscarPorDni($dni_cliente);
 
         if (!$cliente) {
             return redirect()->route('agregar')->with('mensaje_error', 'Cliente no encontrado.');
@@ -136,14 +137,6 @@ class Equipos_controller extends BaseController
         }
     }
 
-    /**
-     * Verifica si el DNI del cliente existe en la base de datos y devuelve el registro del cliente o null si no se encuentra.
-     */
-    public function verficarDni($dni)
-    {
-        $clienteModel = new \App\Models\Clientes_Model();
-        return $clienteModel->where('dni', $dni)->first(); 
-    }
 
     /**
      * Muestra el listado de equipos activos con sus datos relacionados (tipo, marca, modelo).
