@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= base_url('public/assets/css/miestilo_list.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/assets/css/miestilo.css') ?>" rel="stylesheet">
 </head>
 
-<body>
+<body class="contenedor" style ="margin-top:120px">
     <div class="tabla-container">
         <div class="tabla-card">
             <h3 class="tabla-titulo"><?= esc($titulo) ?></h3>
@@ -20,6 +21,16 @@
             <?php if (session()->getFlashdata('mensaje_error')): ?>
                 <div class="flash flash-error" role="alert" style="text-align: center;">
                     ⚠️ <?= session()->getFlashdata('mensaje_error') ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('errores_validation')): ?>
+                <div class="flash flash-error" role="alert" style="text-align: center;">
+                    <ul style="margin: 0; padding-left: 20px; text-align: left;">
+                        <?php foreach (session()->getFlashdata('errores_validation') as $error): ?>
+                            <li><?= esc($error) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
             <?php endif; ?>
 
@@ -92,7 +103,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Tipo</label>
-                        <select name="id_tipo" id="edit_id_tipo" class="form-control" required>
+                        <select name="id_tipo" id="edit_id_tipo" class="form-control" >
                             <?php foreach($tipos as $tipo): ?>
                                 <option value="<?= $tipo['id_tipo'] ?>"><?= $tipo['nombre'] ?></option>
                             <?php endforeach; ?>
@@ -100,7 +111,7 @@
                     </div>
                     <div class="form-group">
                         <label>Marca</label>
-                        <select name="id_marca" id="edit_id_marca" class="form-control" required>
+                        <select name="id_marca" id="edit_id_marca" class="form-control" >
                             <?php foreach($marcas as $marca): ?>
                                 <option value="<?= $marca['id_marca'] ?>"><?= $marca['nombre'] ?></option>
                             <?php endforeach; ?>
@@ -111,7 +122,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Modelo</label>
-                        <select name="id_modelo" id="edit_id_modelo" class="form-control" required>
+                        <select name="id_modelo" id="edit_id_modelo" class="form-control" >
                             <?php foreach($modelos as $modelo): ?>
                                 <option value="<?= $modelo['id_modelo'] ?>" data-marca="<?= $modelo['id_marca'] ?>"><?= $modelo['nombre'] ?></option>
                             <?php endforeach; ?>
@@ -119,13 +130,13 @@
                     </div>
                     <div class="form-group">
                         <label>Nro Serie</label>
-                        <input type="text" name="nroSerie" id="edit_nroSerie" class="form-control" required>
+                        <input type="text" name="nroSerie" id="edit_nroSerie" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Falla</label>
-                    <textarea name="falla" id="edit_falla" class="form-control" rows="2" required></textarea>
+                    <textarea name="falla" id="edit_falla" class="form-control" rows="2" ></textarea>
                 </div>
 
                 <div class="form-acciones" style="margin-top: 20px;">
@@ -134,6 +145,9 @@
                 </div>
             </form>
         </div>
+    </div>
+    <div class="form-acciones">
+        <button type="button" class="btn-outline" style="width: auto; min-width: 150px;" onclick="window.history.back();">Atrás</button>
     </div>
     <script src="<?= base_url('public/assets/js/modificar_equipos.js') ?>"></script>
 </body>

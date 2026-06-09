@@ -22,3 +22,44 @@ function abrirModalEditar(id, tipo, marca, modelo, serie, falla) {
 function cerrarModal() {
     document.getElementById('modalEditar').style.display = 'none';
 }
+
+// Validación del lado del cliente antes de enviar el formulario
+document.getElementById('formEditarEquipo').addEventListener('submit', function(e) {
+    const tipo = document.getElementById('edit_id_tipo').value;
+    const marca = document.getElementById('edit_id_marca').value;
+    const modelo = document.getElementById('edit_id_modelo').value;
+    const serie = document.getElementById('edit_nroSerie').value.trim();
+    const falla = document.getElementById('edit_falla').value.trim();
+
+    let errores = [];
+
+    if (!tipo) {
+        errores.push("Debe seleccionar el tipo de equipo.");
+    }
+    if (!marca) {
+        errores.push("Debe seleccionar la marca del equipo.");
+    }
+    if (!modelo) {
+        errores.push("Debe seleccionar el modelo del equipo.");
+    }
+    if (!serie) {
+        errores.push("Debe ingresar el número de serie.");
+    } else {
+        if (serie.length < 3) {
+            errores.push("El número de serie debe tener al menos 3 caracteres.");
+        }
+        if (serie.length > 20) {
+            errores.push("El número de serie no puede exceder los 20 caracteres.");
+        }
+    }
+
+    // Falla no es obligatoria, pero si se escribe algo debe tener al menos 10 caracteres
+    if (falla !== "" && falla.length < 10) {
+        errores.push("La falla debe tener al menos 10 caracteres.");
+    }
+
+    if (errores.length > 0) {
+        e.preventDefault(); // Cancela el envío del formulario
+        alert(errores.join("\n"));
+    }
+});

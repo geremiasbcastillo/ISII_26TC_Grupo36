@@ -188,17 +188,60 @@ class Equipos_controller extends BaseController
     {
         $request = \Config\Services::request();
         $equipoModel = new \App\Models\Equipos_model();
+        $validation = \Config\Services::validation();
+
+        $validation->setRules(
+            [
+                'id_tipo'         => 'required|numeric',
+                'id_marca'        => 'required|numeric',
+                'id_modelo'       => 'required|numeric',
+                'nroSerie'        => 'required|min_length[3]|max_length[20]',
+                'falla'           => 'required|min_length[10]'
+            ],
+            [
+                'id_tipo' => [
+                    'required' => 'Debe seleccionar el tipo de equipo.',
+                    'numeric' => 'El tipo de equipo seleccionado no es válido.'
+                ],
+                'id_marca' => [
+                    'required' => 'Debe seleccionar la marca del equipo.',
+                    'numeric' => 'La marca seleccionada no es válida.'
+                ],
+                'id_modelo' => [
+                    'required' => 'Debe seleccionar el modelo del equipo.',
+                    'numeric' => 'El modelo del equipo seleccionado no es válido.'
+                ],
+                'nroSerie' => [
+                    'required' => 'Debe ingresar el número de serie.',
+                    'min_length' => 'El número de serie debe tener al menos 3 caracteres.',
+                    'max_length' => 'El número de serie no puede exceder los 20 caracteres.'
+                ],
+                'falla' => [
+                    'required' => 'Debe ingresar el motivo o falla del equipo.',
+                    'min_length' => 'La falla debe tener al menos 10 caracteres.'
+                ]
+            ]
+        );
+
+        if (!$validation->withRequest($request)->run()) {
+            return redirect()->back()->withInput()->with('errores_validation', $validation->getErrors());
+        }
 
         // Captura el ID del equipo que viene oculto en el formulario (input type="hidden")
         $id_equipo = $request->getPost('id_equipo');
+
+        // Buscamos el equipo en la base de datos para recuperar su fecha de ingreso original
+        $equipoActual = $equipoModel->find($id_equipo);
+        $fechaOriginal = $equipoActual ? $equipoActual['fechaIngreso'] : date('Y-m-d');
         
-        // Prepara el arreglo con los nuevos datos actualizados
+        // Prepara el arreglo con los nuevos datos actualizados, conservando la fecha de ingreso
         $dataUpdate = [
-            'id_tipo'   => $request->getPost('id_tipo'),
-            'id_marca'  => $request->getPost('id_marca'),
-            'id_modelo' => $request->getPost('id_modelo'),
-            'nroSerie'  => $request->getPost('nroSerie'),
-            'falla'     => $request->getPost('falla')
+            'id_tipo'      => $request->getPost('id_tipo'),
+            'id_marca'     => $request->getPost('id_marca'),
+            'id_modelo'    => $request->getPost('id_modelo'),
+            'nroSerie'     => $request->getPost('nroSerie'),
+            'falla'        => $request->getPost('falla'),
+            'fechaIngreso' => $fechaOriginal
         ];
 
         // Actualiza el equipo en la base de datos usando el ID capturado y los nuevos datos. 

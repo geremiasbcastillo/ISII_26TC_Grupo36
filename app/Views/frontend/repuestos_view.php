@@ -17,6 +17,10 @@
                 ACTUALIZAR REPUESTOS
             </a>
 
+            <a href="<?= base_url('principal') ?>" class="btn-menu-cuadrado">
+                ATRAS
+            </a>
+
             <a href="<?= base_url('cerrar_sesion') ?>" class="btn-menu-cuadrado">
                 Cerrar Sesión
             </a>
