@@ -89,8 +89,7 @@ class Diagnosticos_controller extends BaseController
             $data['titulo'] = 'Diagnóstico';
             $data['validation'] = $validation->getErrors();
             $data['mensaje_error'] = 'Corrige los campos obligatorios.';
-
-            return view('plantillas/nav_view', $data) . view('frontend/diagnostico_view', $data) . view('plantillas/footer_view', $data);
+            return redirect()->back()->withInput()->with('validation', $validation->getErrors());
         }
 
         $id_equipo = $request->getPost('id_equipo');
