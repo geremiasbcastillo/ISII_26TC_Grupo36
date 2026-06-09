@@ -168,7 +168,7 @@ class Reparaciones_Controller extends BaseController
             'equipos' => $equipos,
             'repuestos' => $repuestos,
             'titulo' => 'Reparación',
-            'mensaje_success' => 'Reparación registrada exitosamente. El equipo ha sido marcado como reparado.'
+            'mensaje_success' => 'Reparación registrada exitosamente.'
         ];
 
         return redirect()->to('reparacion')->with('data', $data);
