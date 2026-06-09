@@ -58,16 +58,40 @@ class Reparaciones_Controller extends BaseController
         $repuestos_json = $request->getPost('repuestos_json');
 
         // Validaciones
-        if (empty($id_equipo)) {
-            return redirect()->back()->with('mensaje_error', 'Debes seleccionar un equipo');
+        $validation = \Config\Services::validation();
+
+        $validation->setRules([
+            'id_equipo' => 'required',
+            'observaciones' => 'required',
+            'repuestos_json' => 'required'],
+            ['id_equipo' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes seleccionar un equipo.'
+                ]
+            ],
+            'observaciones' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes describir el análisis o diagnóstico realizado al equipo.'
+                ]
+            ],
+            'repuestos_json' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes agregar al menos un repuesto.'
+                ]
+            ]
+        ]);
+
+        if (!$validation->withRequest($request)->run()) {
+            $data['titulo'] = 'Reparación';
+            $data['validation'] = $validation->getErrors();
+            return redirect()->back()->withInput()->with('validation', $validation->getErrors());
         }
 
         // Decodificar el JSON de repuestos
         $repuestosUsados = json_decode($repuestos_json, true);
-
-        if (empty($repuestosUsados)) {
-            return redirect()->back()->with('mensaje_error', 'Debes agregar al menos un repuesto');
-        }
 
         // Verificar que el equipo exista
         $equipo = $equiposModel->find($id_equipo);
@@ -109,6 +133,14 @@ class Reparaciones_Controller extends BaseController
             'equipo_estado' => 0
         ]);
 
+        // guardamos el reparacion
+        $reparacionesModel = new Reparaciones_model();
+        $reparacionesModel->insert([
+            'id_equipo' => $id_equipo,
+            'observaciones' => $observaciones,
+            'repuestos_json' => $repuestos_json
+        ]);
+
         // Obtener los datos actualizados para la vista
         $equiposModel = new Equipos_model();
         $repuestosModel = new Repuestos_Model();
@@ -139,7 +171,7 @@ class Reparaciones_Controller extends BaseController
             'mensaje_success' => 'Reparación registrada exitosamente. El equipo ha sido marcado como reparado.'
         ];
 
-        return view('plantillas/nav_view', $data) . view('frontend/reparacion_view', $data) . view('plantillas/footer_view', $data);
+        return redirect()->to('reparacion')->with('data', $data);
     }
 
     private function enviarAlertaStock($nombreRepuesto, $stockRestante, $stockMinimo)

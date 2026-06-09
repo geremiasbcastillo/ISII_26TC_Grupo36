@@ -130,7 +130,7 @@ class Usuarios_controller extends BaseController
         if (!$validation->withRequest($request)->run()) {
             $data['titulo'] = 'Registro';
             $data['validation'] = $validation->getErrors();
-            return view('plantillas/nav_view', $data) . view('frontend/registro_view', $data) . view('plantillas/footer_view');
+            return redirect()->back()->withInput()->with('validation', $validation->getErrors());
         }
         
         // Si llegamos acá, los datos son correctos. Los guardamos en variables.

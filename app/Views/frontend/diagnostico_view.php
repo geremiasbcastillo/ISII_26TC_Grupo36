@@ -33,6 +33,7 @@
         </div>
     <?php endif; ?>
 
+    
     <div class="registro-container">
         <div class="registro-card">
             <h2 class="registro-titulo">DIAGNÓSTICO DE EQUIPO</h2>
@@ -61,7 +62,6 @@
                             'class'       => 'form-control',
                             'rows'        => '5',
                             'placeholder' => 'Describe el análisis o diagnóstico realizado al equipo...',
-                            'required'    => 'required',
                             'value'       => set_value('analisis')
                     ]) ?>
                 </div>

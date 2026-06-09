@@ -7,7 +7,7 @@ use App\Models\Equipos_model;
 
 class Diagnosticos_controller extends BaseController
 {
-    public function index()
+    public function formularioDiagnostico()
     {
         $equipoModel = new Equipos_model();
         $diagnosticosModel = new Diagnosticos_model();
@@ -65,30 +65,6 @@ class Diagnosticos_controller extends BaseController
         );
 
         if (!$validation->withRequest($request)->run()) {
-            $equipoModel = new Equipos_model();
-            $diagnosticosModel = new Diagnosticos_model();
-
-            // Obtener los IDs de equipos que ya tienen un diagnóstico
-            $equiposDiagnosticados = $diagnosticosModel->distinct()->select('id_equipo')->findAll();
-            $equiposDiagnosticadosIds = array_column($equiposDiagnosticados, 'id_equipo');
-
-            $query = $equipoModel->select(
-                    'equipo.id_equipo, equipo.nroSerie, tipo_equipo.nombre as tipo_nombre, modelo_equipo.nombre as modelo_nombre, marca.nombre as marca_nombre'
-                )
-                ->join('tipo_equipo', 'tipo_equipo.id_tipo = equipo.id_tipo')
-                ->join('modelo_equipo', 'modelo_equipo.id_modelo = equipo.id_modelo')
-                ->join('marca', 'marca.id_marca = modelo_equipo.id_marca')
-                ->where('equipo.equipo_estado', 1);
-
-            if (!empty($equiposDiagnosticadosIds)) {
-                $query->whereNotIn('equipo.id_equipo', $equiposDiagnosticadosIds);
-            }
-
-            $data['equipos'] = $query->findAll();
-
-            $data['titulo'] = 'Diagnóstico';
-            $data['validation'] = $validation->getErrors();
-            $data['mensaje_error'] = 'Corrige los campos obligatorios.';
             return redirect()->back()->withInput()->with('validation', $validation->getErrors());
         }
 

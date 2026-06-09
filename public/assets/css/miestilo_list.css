@@ -34,7 +34,7 @@
     font-size: 14px;
 }
 
-.tabla-equipos th, 
+.tabla-equipos th,
 .tabla-equipos td {
     padding: 12px 15px;
     text-align: left;
@@ -49,7 +49,8 @@
 }
 
 .tabla-equipos tbody tr:hover {
-    background-color: #f8fbff; /* Efecto hover suave */
+    background-color: #f8fbff;
+    /* Efecto hover suave */
 }
 
 /* Botones de acción pequeños */
@@ -80,18 +81,22 @@
 }
 
 .btn-eliminar {
-    background-color: #007bff; 
+    background-color: #007bff;
 }
 
 /* Fondo oscuro translúcido */
 .modal-fondo {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Asegura que esté por encima de todo */
+    z-index: 1000;
+    /* Asegura que esté por encima de todo */
 }
 
 /* Tarjeta blanca del modal */
@@ -101,7 +106,7 @@
     border-radius: 8px;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Mensajes flash compartidos con el resto del sitio */
@@ -117,13 +122,15 @@
     font-size: 14px;
     line-height: 1.4;
     z-index: 11010;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
+
 .flash-error {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
 .flash-success {
     background-color: #d4edda;
     color: #155724;
@@ -178,9 +185,12 @@
     background-color: #f0f7ff;
 }
 
-
-
-.boton-atras button {
-    width: 200px !important;
-    padding: 10px 0;
+.boton-atras {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 80px;
+    height: 40px;
+    position: center;
 }
