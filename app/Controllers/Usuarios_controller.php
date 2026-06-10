@@ -78,6 +78,7 @@ class Usuarios_controller extends BaseController
     
     /**
      * Procesa el formulario de registro de usuario, valida los datos y guarda el nuevo usuario en la base de datos.
+     * 
      */
     public function guardarUsuario()
     {

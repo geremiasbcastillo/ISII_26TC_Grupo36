@@ -10,6 +10,9 @@ use App\Models\Equipos_model;
 
 class Repuestos_controller extends BaseController
 {
+    /**
+     * Registra un nuevo repuesto en el sistema, validando los datos y guardándolos en la base de datos.
+     */
     public function guardarRepuesto()
     {
         // Preparamos la herramienta de validación y la petición.
@@ -99,6 +102,9 @@ class Repuestos_controller extends BaseController
         }
     }
 
+    /**
+     * Actualiza los datos de un repuesto existente en el sistema, validando los datos y guardándolos en la base de datos.
+     */
     public function guardar_edicion()
     {
         // 1. Obtener la petición y la validación

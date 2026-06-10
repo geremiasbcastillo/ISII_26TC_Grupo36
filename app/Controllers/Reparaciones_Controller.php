@@ -10,8 +10,18 @@ use App\Models\Repuestos_Model;
 use App\Models\Diagnosticos_model;
 use App\Models\Reparaciones_Model;
 
+/**
+ * Clase Reparaciones_Controller
+ * 
+ * Controlador encargado de gestionar el proceso de registro de reparaciones de los equipos,
+ * el control de inventario de repuestos utilizados y el envío de alertas de stock.
+ */
 class Reparaciones_Controller extends BaseController
 {
+    /**
+     * Muestra la pantalla principal de registro de reparaciones.
+     * Carga el listado de equipos que ya cuentan con diagnóstico y los repuestos disponibles en stock.
+     */
     public function index()
     {
         $equiposModel = new Equipos_model();
@@ -34,7 +44,7 @@ class Reparaciones_Controller extends BaseController
                                 ->whereIn('equipo.id_equipo', !empty($equiposDiagnosticadosIds) ? $equiposDiagnosticadosIds : [0])
                                 ->findAll();
 
-        // Obtener todos los repuestos disponibles
+        // Obtener todos los repuestos disponibles con stock mayor a cero
         $repuestos = $repuestosModel->select('id_repuesto, nombre, cantidad')
                                     ->where('cantidad >', 0)
                                     ->findAll();
@@ -48,6 +58,11 @@ class Reparaciones_Controller extends BaseController
         return view('plantillas/nav_view', $data) . view('frontend/reparacion_view', $data) . view('plantillas/footer_view', $data);
     }
 
+    /**
+     * Procesa el formulario de guardado de una reparación.
+     * Valida la información, calcula los montos, reduce el stock, asocia el diagnóstico y
+     * persiste los datos en las tablas correspondientes.
+     */
     public function guardarReparacion()
     {
         $request = \Config\Services::request();
@@ -55,6 +70,7 @@ class Reparaciones_Controller extends BaseController
         $repuestosModel = new Repuestos_Model();
         $diagnosticosModel = new Diagnosticos_model();
 
+        // Obtener los datos enviados por POST del formulario
         $id_equipo = $request->getPost('id_equipo');
         $observaciones = $request->getPost('observaciones');
         $repuestos_json = $request->getPost('repuestos_json');
@@ -79,13 +95,14 @@ class Reparaciones_Controller extends BaseController
             ]
         ]);
 
+        // Si falla la validación, retornar a la vista con los errores
         if (!$validation->withRequest($request)->run()) {
             $data['titulo'] = 'Reparación';
             $data['validation'] = $validation->getErrors();
             return redirect()->back()->withInput()->with('validation', $validation->getErrors());
         }
 
-        // Decodificar el JSON de repuestos
+        // Decodificar el JSON de repuestos utilizados
         $repuestosUsados = json_decode($repuestos_json, true);
 
         // Verificar que el equipo exista y este activo
@@ -192,9 +209,18 @@ class Reparaciones_Controller extends BaseController
         return redirect()->to('reparacion')->with('data', $data);
     }
 
+    /**
+     * Envía una alerta por correo electrónico si el stock de un repuesto cae bajo el límite mínimo.
+     * 
+     * @param string $nombreRepuesto Nombre del repuesto con stock crítico.
+     * @param int $stockRestante Cantidad restante disponible.
+     * @param int $stockMinimo Límite de stock mínimo definido.
+     * 
+     * @return bool Retorna falso si el correo del destinatario no se encuentra en sesión.
+     */
     private function enviarAlertaStock($nombreRepuesto, $stockRestante, $stockMinimo)
     {
-        // 1. Obtenemos el correo de la sesión actual
+        // Obtenemos el correo de la sesión actual
         // (Asumo que lo guardaste como 'correo' basándome en tu método de guardar_usuario)
         $correoDestino = session()->get('email'); 
 
@@ -204,15 +230,14 @@ class Reparaciones_Controller extends BaseController
             return false; 
         }
 
-        // 2. Cargamos el servicio de Email
+        // Cargamos el servicio de Email
         $email = \Config\Services::email();
 
-        // 3. Configuramos el remitente y destinatario
-        // NOTA: El 'from' debe coincidir con el correo que configuraste en tu archivo .env
+        // Configuramos el remitente y destinatario
         $email->setFrom('serviciotecnicounne@gmail.com', 'Sistema de Servicio Técnico');
         $email->setTo($correoDestino);
         
-        // 4. Asunto y cuerpo del correo (En formato HTML para que se vea profesional)
+        // Asunto y cuerpo del correo (En formato HTML para que se vea profesional)
         $email->setSubject('⚠️ ALERTA: Stock Bajo de Repuesto');
         
         $mensajeHTML = "
@@ -239,7 +264,7 @@ class Reparaciones_Controller extends BaseController
         
         $email->setMessage($mensajeHTML);
 
-        // 5. Enviamos el correo
+        // Enviamos el correo
         if (!$email->send()) {
             // Si falla, guardamos el error en los logs de CodeIgniter (writable/logs/)
             // No detenemos la aplicación porque la reparación ya se guardó con éxito.

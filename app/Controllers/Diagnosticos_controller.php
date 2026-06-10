@@ -7,6 +7,9 @@ use App\Models\Equipos_model;
 
 class Diagnosticos_controller extends BaseController
 {
+    /**
+     * Muestra el formulario de diagnóstico, listando solo los equipos que no han sido diagnosticados aún.
+    */
     public function formularioDiagnostico()
     {
         $equipoModel = new Equipos_model();

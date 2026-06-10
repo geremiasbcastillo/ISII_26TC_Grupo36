@@ -46,6 +46,11 @@ class Home extends BaseController
         return view('plantillas/nav_view', $data) . view('frontend/repuestos_view', $data) . view('plantillas/footer_view', $data);
     }
     
+    /**
+     * Muestra el formulario para registrar nuevos repuestos.
+     * 
+     * @return void 
+     */
     public function registrar_repuestos()
     {
         $categoriaModel = new \App\Models\Categorias_Model();
@@ -54,6 +59,11 @@ class Home extends BaseController
         return view('plantillas/nav_view', $data) . view('frontend/registrarRep_view', $data) . view('plantillas/footer_view', $data);
     }
 
+    /**
+     * Muestra una vista con el stock actual de repuestos.
+     * 
+     * @return void 
+     */
     public function stock_repuestos()
     {
         $repuestoModel = new \App\Models\Repuestos_Model();
@@ -70,6 +80,11 @@ class Home extends BaseController
         return view('plantillas/nav_view', $data) . view('frontend/stockRepuestos_view', $data) . view('plantillas/footer_view', $data);
     }
 
+    /**
+     * Muestra una vista con los repuestos a actualizar.
+     * 
+     * @return void 
+     */
     public function actualizar_repuestos()
     {
         $repuestoModel = new \App\Models\Repuestos_Model();
