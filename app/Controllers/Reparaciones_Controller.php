@@ -88,10 +88,10 @@ class Reparaciones_Controller extends BaseController
         // Decodificar el JSON de repuestos
         $repuestosUsados = json_decode($repuestos_json, true);
 
-        // Verificar que el equipo exista
-        $equipo = $equiposModel->find($id_equipo);
+        // Verificar que el equipo exista y este activo
+        $equipo = $equiposModel->encontrarEquipoActivo($id_equipo);
         if (!$equipo) {
-            return redirect()->back()->with('mensaje_error', 'Equipo no encontrado');
+            return redirect()->back()->with('mensaje_error', 'Equipo no encontrado o ya no está activo.');
         }
 
         // Obtener el diagnóstico asociado al equipo para poder registrar la reparación
