@@ -12,8 +12,8 @@ class Diagnosticos_controller extends BaseController
     */
     public function formularioDiagnostico()
     {
-        $equipoModel = new Equipos_model();
-        $diagnosticosModel = new Diagnosticos_model();
+        $equipoModel = model(Equipos_model::class);
+        $diagnosticosModel = model(Diagnosticos_model::class);
         
         // Obtener los IDs de equipos que ya tienen un diagnóstico
         $equiposDiagnosticados = $diagnosticosModel->distinct()->select('id_equipo')->findAll();
@@ -76,14 +76,14 @@ class Diagnosticos_controller extends BaseController
         $solucion = $request->getPost('solucion');
         $costo_estimado = $request->getPost('costo_estimado');
 
-        $equipoModel = new Equipos_model();
+        $equipoModel = model(Equipos_model::class);
         $equipo = $equipoModel->where('id_equipo', $id_equipo)->where('equipo_estado', 1)->first();
 
         if (!$equipo) {
             return redirect()->back()->withInput()->with('mensaje_error', 'Equipo no encontrado o ya no está activo.');
         }
 
-        $diagnosticoModel = new Diagnosticos_model();
+        $diagnosticoModel = model(Diagnosticos_model::class);
         $diagnosticoData = [
             'id_equipo'        => $id_equipo,
             'analisis'         => $analisis,
