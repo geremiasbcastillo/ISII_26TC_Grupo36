@@ -54,18 +54,6 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="observaciones">Observaciones de la Reparación</label>
-                    <?= form_textarea([
-                        'name'        => 'observaciones',
-                        'id'          => 'observaciones',
-                        'class'       => 'form-control',
-                        'rows'        => '4',
-                        'placeholder' => 'Describe los detalles de la reparación realizada...',
-                        'value'       => set_value('observaciones')
-                    ]) ?>
-                </div>
-
                 <!-- Sección de selección de repuestos -->
                 <div class="form-group">
                     <label>Repuestos Utilizados *</label>

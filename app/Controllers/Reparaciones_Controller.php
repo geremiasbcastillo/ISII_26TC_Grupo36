@@ -8,6 +8,7 @@ use App\Models\Modelos_equipos_model;
 use App\Models\Equipos_model;
 use App\Models\Repuestos_Model;
 use App\Models\Diagnosticos_model;
+use App\Models\Reparaciones_model;
 
 class Reparaciones_Controller extends BaseController
 {
@@ -54,7 +55,6 @@ class Reparaciones_Controller extends BaseController
         $repuestosModel = new Repuestos_Model();
 
         $id_equipo = $request->getPost('id_equipo');
-        $observaciones = $request->getPost('observaciones');
         $repuestos_json = $request->getPost('repuestos_json');
 
         // Validaciones
@@ -62,18 +62,11 @@ class Reparaciones_Controller extends BaseController
 
         $validation->setRules([
             'id_equipo' => 'required',
-            'observaciones' => 'required',
             'repuestos_json' => 'required'],
             ['id_equipo' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Debes seleccionar un equipo.'
-                ]
-            ],
-            'observaciones' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Debes describir el análisis o diagnóstico realizado al equipo.'
                 ]
             ],
             'repuestos_json' => [
@@ -99,7 +92,8 @@ class Reparaciones_Controller extends BaseController
             return redirect()->back()->with('mensaje_error', 'Equipo no encontrado');
         }
 
-        // Procesar cada repuesto utilizado
+        // Procesar cada repuesto utilizado y calcular el monto total
+        $monto_total = 0;
         foreach ($repuestosUsados as $repuesto) {
             $id_repuesto = $repuesto['id_repuesto'];
             $cantidad_usada = $repuesto['cantidad'];
@@ -122,6 +116,9 @@ class Reparaciones_Controller extends BaseController
             // Actualizar stock del repuesto
             $repuestosModel->update($id_repuesto, ['cantidad' => $nuevo_stock]);
 
+            // Sumar al monto total de la reparación
+            $monto_total += $repuestoData['monto'] * $cantidad_usada;
+
             // Verificar si el stock está por debajo del mínimo
             if ($nuevo_stock <= $repuestoData['cantidad_minima']) {
                 $this->enviarAlertaStock($repuestoData['nombre'], $nuevo_stock, $repuestoData['cantidad_minima']);
@@ -133,13 +130,30 @@ class Reparaciones_Controller extends BaseController
             'equipo_estado' => 0
         ]);
 
-        // guardamos el reparacion
+        // Obtener el id_diagnostico correspondiente al equipo
+        $diagnosticosModel = new Diagnosticos_model();
+        $diagnostico = $diagnosticosModel->where('id_equipo', $id_equipo)->first();
+        $id_diagnostico = $diagnostico ? $diagnostico['id_diagnostico'] : null;
+
+        // Guardar la reparación
         $reparacionesModel = new Reparaciones_model();
         $reparacionesModel->insert([
-            'id_equipo' => $id_equipo,
-            'observaciones' => $observaciones,
-            'repuestos_json' => $repuestos_json
+            'id_diagnostico'      => $id_diagnostico,
+            'fecha_reparacion'    => date('Y-m-d'),
+            'monto_total'         => $monto_total,
+            'id_estadoReparacion' => null // Permite nulo en BD
         ]);
+        $id_reparacion = $reparacionesModel->getInsertID();
+
+        // Guardar la relación en la tabla intermedia repuesto_reparacion
+        $db = \Config\Database::connect();
+        foreach ($repuestosUsados as $repuesto) {
+            $id_repuesto = $repuesto['id_repuesto'];
+            $db->table('repuesto_reparacion')->insert([
+                'id_reparacion' => $id_reparacion,
+                'id_repuesto'   => $id_repuesto
+            ]);
+        }
 
         // Obtener los datos actualizados para la vista
         $equiposModel = new Equipos_model();
@@ -164,14 +178,7 @@ class Reparaciones_Controller extends BaseController
                                     ->where('cantidad >', 0)
                                     ->findAll();
 
-        $data = [
-            'equipos' => $equipos,
-            'repuestos' => $repuestos,
-            'titulo' => 'Reparación',
-            'mensaje_success' => 'Reparación registrada exitosamente.'
-        ];
-
-        return redirect()->to('reparacion')->with('data', $data);
+        return redirect()->to(base_url('reparacion'))->with('mensaje_success', 'Reparación registrada exitosamente.');
     }
 
     private function enviarAlertaStock($nombreRepuesto, $stockRestante, $stockMinimo)
