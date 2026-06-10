@@ -140,7 +140,9 @@ if (isset($modelos)) {
                             'id'          => 'fechaIngreso', 
                             'type'        => 'date', 
                             'class'       => 'form-control',
-                            'required'    => 'required'
+                            'required'    => 'required',
+                            'max'         => date('Y-m-d'),
+                            'value'       => set_value('fechaIngreso', date('Y-m-d'))
                         ]) ?>
                     </div>
                 </div>

@@ -99,6 +99,11 @@ class Equipos_controller extends BaseController
         $fecha       = $request->getPost('fechaIngreso');
         $equipo_estado = 1; // 1 para activo, 0 para inactivo
 
+        // Validar que la fecha de ingreso no sea futura
+        if (strtotime($fecha) > strtotime(date('Y-m-d'))) {
+            return redirect()->back()->withInput()->with('mensaje_error', 'La fecha de ingreso no puede ser una fecha futura.');
+        }
+
         // Verificación del DNI contra la tabla `cliente`
         $clienteModel = new \App\Models\Clientes_Model();
         $cliente = $clienteModel->verificarDni($dni_cliente);
@@ -160,6 +165,7 @@ class Equipos_controller extends BaseController
                ->join('modelo_equipo', 'modelo_equipo.id_modelo = equipo.id_modelo')
                ->join('marca', 'marca.id_marca = modelo_equipo.id_marca')
                ->where('equipo.equipo_estado', 1) // Solo equipos activos
+               ->orderBy('equipo.fechaIngreso', 'DESC')
                ->findAll();
 
         $data['titulo'] = 'Listado de Equipos';
