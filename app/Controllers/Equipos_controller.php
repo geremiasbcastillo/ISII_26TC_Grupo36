@@ -101,7 +101,7 @@ class Equipos_controller extends BaseController
 
         // Verificación del DNI contra la tabla `cliente`
         $clienteModel = new \App\Models\Clientes_Model();
-        $cliente = $clienteModel->buscarPorDni($dni_cliente);
+        $cliente = $clienteModel->verificarDni($dni_cliente);
 
         if (!$cliente) {
             return redirect()->route('agregar')->with('mensaje_error', 'Cliente no encontrado.');

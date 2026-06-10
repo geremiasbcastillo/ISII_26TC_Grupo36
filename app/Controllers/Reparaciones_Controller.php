@@ -8,7 +8,7 @@ use App\Models\Modelos_equipos_model;
 use App\Models\Equipos_model;
 use App\Models\Repuestos_Model;
 use App\Models\Diagnosticos_model;
-use App\Models\Reparaciones_model;
+use App\Models\Reparaciones_Model;
 
 class Reparaciones_Controller extends BaseController
 {
@@ -53,8 +53,10 @@ class Reparaciones_Controller extends BaseController
         $request = \Config\Services::request();
         $equiposModel = new Equipos_model();
         $repuestosModel = new Repuestos_Model();
+        $diagnosticosModel = new Diagnosticos_model();
 
         $id_equipo = $request->getPost('id_equipo');
+        $observaciones = $request->getPost('observaciones');
         $repuestos_json = $request->getPost('repuestos_json');
 
         // Validaciones
@@ -92,8 +94,16 @@ class Reparaciones_Controller extends BaseController
             return redirect()->back()->with('mensaje_error', 'Equipo no encontrado');
         }
 
-        // Procesar cada repuesto utilizado y calcular el monto total
+        // Obtener el diagnóstico asociado al equipo para poder registrar la reparación
+        $diagnostico = $diagnosticosModel->where('id_equipo', $id_equipo)->orderBy('id_diagnostico', 'DESC')->first();
+        if (!$diagnostico) {
+            return redirect()->back()->with('mensaje_error', 'No se encontró un diagnóstico registrado para este equipo.');
+        }
+        $id_diagnostico = $diagnostico['id_diagnostico'];
+
         $monto_total = 0;
+
+        // Procesar cada repuesto utilizado
         foreach ($repuestosUsados as $repuesto) {
             $id_repuesto = $repuesto['id_repuesto'];
             $cantidad_usada = $repuesto['cantidad'];
@@ -116,8 +126,8 @@ class Reparaciones_Controller extends BaseController
             // Actualizar stock del repuesto
             $repuestosModel->update($id_repuesto, ['cantidad' => $nuevo_stock]);
 
-            // Sumar al monto total de la reparación
-            $monto_total += $repuestoData['monto'] * $cantidad_usada;
+            // Acumular el precio del repuesto multiplicado por la cantidad utilizada
+            $monto_total += $cantidad_usada * $repuestoData['monto'];
 
             // Verificar si el stock está por debajo del mínimo
             if ($nuevo_stock <= $repuestoData['cantidad_minima']) {
@@ -125,35 +135,29 @@ class Reparaciones_Controller extends BaseController
             }
         }
 
+        // guardamos la reparación
+        $reparacionesModel = new Reparaciones_Model();
+        $id_reparacion = $reparacionesModel->insert([
+            'fecha_reparacion' => date('Y-m-d'),
+            'id_diagnostico' => $id_diagnostico,
+            'monto_total' => $monto_total
+        ]);
+
+        if ($id_reparacion) {
+            // Guardamos la relación de repuestos utilizados en la tabla intermedia
+            $db = \Config\Database::connect();
+            foreach ($repuestosUsados as $repuesto) {
+                $db->table('repuesto_reparacion')->insert([
+                    'id_reparacion' => $id_reparacion,
+                    'id_repuesto'   => $repuesto['id_repuesto']
+                ]);
+            }
+        }
+        
         // Actualizar el estado del equipo a inactivo (reparado y fuera del sistema)
         $equiposModel->update($id_equipo, [
             'equipo_estado' => 0
         ]);
-
-        // Obtener el id_diagnostico correspondiente al equipo
-        $diagnosticosModel = new Diagnosticos_model();
-        $diagnostico = $diagnosticosModel->where('id_equipo', $id_equipo)->first();
-        $id_diagnostico = $diagnostico ? $diagnostico['id_diagnostico'] : null;
-
-        // Guardar la reparación
-        $reparacionesModel = new Reparaciones_model();
-        $reparacionesModel->insert([
-            'id_diagnostico'      => $id_diagnostico,
-            'fecha_reparacion'    => date('Y-m-d'),
-            'monto_total'         => $monto_total,
-            'id_estadoReparacion' => null // Permite nulo en BD
-        ]);
-        $id_reparacion = $reparacionesModel->getInsertID();
-
-        // Guardar la relación en la tabla intermedia repuesto_reparacion
-        $db = \Config\Database::connect();
-        foreach ($repuestosUsados as $repuesto) {
-            $id_repuesto = $repuesto['id_repuesto'];
-            $db->table('repuesto_reparacion')->insert([
-                'id_reparacion' => $id_reparacion,
-                'id_repuesto'   => $id_repuesto
-            ]);
-        }
 
         // Obtener los datos actualizados para la vista
         $equiposModel = new Equipos_model();
@@ -178,7 +182,14 @@ class Reparaciones_Controller extends BaseController
                                     ->where('cantidad >', 0)
                                     ->findAll();
 
-        return redirect()->to(base_url('reparacion'))->with('mensaje_success', 'Reparación registrada exitosamente.');
+        $data = [
+            'equipos' => $equipos,
+            'repuestos' => $repuestos,
+            'titulo' => 'Reparación',
+            'mensaje_success' => 'Reparación registrada exitosamente.'
+        ];
+
+        return redirect()->to('reparacion')->with('data', $data);
     }
 
     private function enviarAlertaStock($nombreRepuesto, $stockRestante, $stockMinimo)

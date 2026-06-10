@@ -21,7 +21,7 @@ class Clientes_Model extends Model
     protected $updatedField  = '';
     protected $validationRules = [];
 
-    public function buscarPorDni($dni)
+    public function verificarDni($dni)
     {
         return $this->where('dni', $dni)->first();
     }
