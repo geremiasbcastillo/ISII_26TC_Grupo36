@@ -46,7 +46,7 @@ $routes->post('eliminar/(:num)', 'Equipos_controller::eliminarEquipo/$1', ['filt
 
 $routes->post('guardar_repuesto', 'Repuestos_controller::guardarRepuesto', ['filter' => 'admin']); 
 
-$routes->post('guardar_edicion', 'Repuestos_controller::guardar_edicion', ['filter' => 'admin']);
+$routes->post('guardar_edicion/(:num)', 'Repuestos_controller::guardar_edicion/$1', ['filter' => 'admin']);
 
 $routes->get('repuestos', 'Home::repuestos', ['filter' => 'admin']);
 

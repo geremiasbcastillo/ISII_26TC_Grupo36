@@ -77,7 +77,7 @@ class Diagnosticos_controller extends BaseController
         $costo_estimado = $request->getPost('costo_estimado');
 
         $equipoModel = model(Equipos_model::class);
-        $equipo = $equipoModel->where('id_equipo', $id_equipo)->where('equipo_estado', 1)->first();
+        $equipo = $equipoModel->encontrarEquipoActivo($id_equipo);
 
         if (!$equipo) {
             return redirect()->back()->withInput()->with('mensaje_error', 'Equipo no encontrado o ya no está activo.');

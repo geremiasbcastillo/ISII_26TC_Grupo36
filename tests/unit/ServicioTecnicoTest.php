@@ -26,13 +26,47 @@ final class ServicioTecnicoTest extends CIUnitTestCase
         parent::setUp();
         // Reset factories components between tests
         Factories::reset();
+
+        // Reset validation service to avoid test pollution
+        \Config\Services::validation()->reset();
+
         $_POST = [];
+        $_GET = [];
+        $_REQUEST = [];
+        $_SESSION = [];
+
+        // Mock model Marcas_model
+        $mockMarcas = $this->getMockBuilder(\App\Models\Marcas_model::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['findAll'])
+            ->getMock();
+        $mockMarcas->method('findAll')->willReturn([]);
+        Factories::injectMock('models', \App\Models\Marcas_model::class, $mockMarcas);
+
+        // Mock model Tipos_Equipos_model
+        $mockTipos = $this->getMockBuilder(\App\Models\Tipos_Equipos_model::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['findAll'])
+            ->getMock();
+        $mockTipos->method('findAll')->willReturn([]);
+        Factories::injectMock('models', \App\Models\Tipos_Equipos_model::class, $mockTipos);
+
+        // Mock model Modelos_Equipos_model
+        $mockModelos = $this->getMockBuilder(\App\Models\Modelos_Equipos_model::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['findAll'])
+            ->getMock();
+        $mockModelos->method('findAll')->willReturn([]);
+        Factories::injectMock('models', \App\Models\Modelos_Equipos_model::class, $mockModelos);
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
         $_POST = [];
+        $_GET = [];
+        $_REQUEST = [];
+        $_SESSION = [];
     }
 
     // ==========================================
@@ -113,6 +147,7 @@ final class ServicioTecnicoTest extends CIUnitTestCase
             'solucion'       => 'Arreglar pantalla',
             'costo_estimado' => '50000'
         ];
+        $_REQUEST = $_POST;
 
         $request = service('incomingrequest', null, false);
 
@@ -142,16 +177,15 @@ final class ServicioTecnicoTest extends CIUnitTestCase
             'solucion'       => 'Probar rams y fuente',       // longitud >= 5
             'costo_estimado' => '20000'
         ];
+        $_REQUEST = $_POST;
 
         // Mock del modelo Equipos_model para simular que el equipo existe y está activo
         $mockEquiposModel = $this->getMockBuilder(Equipos_model::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['where', 'first'])
+            ->onlyMethods(['encontrarEquipoActivo'])
             ->getMock();
 
-        // Mocking del chain fluent builder: $model->where(...)->where(...)->first()
-        $mockEquiposModel->method('where')->willReturnSelf();
-        $mockEquiposModel->method('first')->willReturn([
+        $mockEquiposModel->method('encontrarEquipoActivo')->willReturn([
             'id_equipo'     => 1,
             'nroSerie'      => '123',
             'equipo_estado' => 1
@@ -167,7 +201,7 @@ final class ServicioTecnicoTest extends CIUnitTestCase
         Factories::injectMock('models', Diagnosticos_model::class, $mockDiagnosticosModel);
 
         // Simulamos usuario logueado en sesión
-        $this->withSession(['id' => 1]);
+        session()->set(['id' => 1]);
 
         $request = service('incomingrequest', null, false);
         $result = $this->withRequest($request)
@@ -191,6 +225,7 @@ final class ServicioTecnicoTest extends CIUnitTestCase
             'solucion'       => 'Nose',          // 4 caracteres (< 5)
             'costo_estimado' => '50000'
         ];
+        $_REQUEST = $_POST;
 
         $request = service('incomingrequest', null, false);
         $result = $this->withRequest($request)
@@ -223,17 +258,15 @@ final class ServicioTecnicoTest extends CIUnitTestCase
             'falla'        => 'No da imagen',
             'fechaIngreso' => '2026-05-20'
         ];
+        $_REQUEST = $_POST;
 
         $request = service('incomingrequest', null, false);
         $result = $this->withRequest($request)
             ->controller(Equipos_controller::class)
             ->execute('registrarEquipo');
 
-        $result->assertSessionHas('validation');
-        $errors = session()->get('validation');
-        
-        $this->assertArrayHasKey('dni_cliente', $errors);
-        $this->assertEquals('El DNI del cliente es obligatorio.', $errors['dni_cliente']);
+        $result->assertOK();
+        $result->assertSee('El DNI del cliente es obligatorio.');
     }
 
     /**
@@ -250,17 +283,15 @@ final class ServicioTecnicoTest extends CIUnitTestCase
             'falla'        => 'No da imagen',
             'fechaIngreso' => '2026-05-20'
         ];
+        $_REQUEST = $_POST;
 
         $request = service('incomingrequest', null, false);
         $result = $this->withRequest($request)
             ->controller(Equipos_controller::class)
             ->execute('registrarEquipo');
 
-        $result->assertSessionHas('validation');
-        $errors = session()->get('validation');
-        
-        $this->assertArrayHasKey('nroSerie', $errors);
-        $this->assertEquals('El número de serie es obligatorio.', $errors['nroSerie']);
+        $result->assertOK();
+        $result->assertSee('El número de serie es obligatorio.');
     }
 
     /**
@@ -277,17 +308,15 @@ final class ServicioTecnicoTest extends CIUnitTestCase
             'falla'        => '', // vacío
             'fechaIngreso' => '2026-05-20'
         ];
+        $_REQUEST = $_POST;
 
         $request = service('incomingrequest', null, false);
         $result = $this->withRequest($request)
             ->controller(Equipos_controller::class)
             ->execute('registrarEquipo');
 
-        $result->assertSessionHas('validation');
-        $errors = session()->get('validation');
-        
-        $this->assertArrayHasKey('falla', $errors);
-        $this->assertEquals('La descripción de la falla es obligatoria.', $errors['falla']);
+        $result->assertOK();
+        $result->assertSee('La descripción de la falla es obligatoria.');
     }
 
     /**
@@ -304,16 +333,14 @@ final class ServicioTecnicoTest extends CIUnitTestCase
             'falla'        => 'No da imagen',
             'fechaIngreso' => '' // vacío
         ];
+        $_REQUEST = $_POST;
 
         $request = service('incomingrequest', null, false);
         $result = $this->withRequest($request)
             ->controller(Equipos_controller::class)
             ->execute('registrarEquipo');
 
-        $result->assertSessionHas('validation');
-        $errors = session()->get('validation');
-        
-        $this->assertArrayHasKey('fechaIngreso', $errors);
-        $this->assertEquals('La fecha de ingreso es obligatoria.', $errors['fechaIngreso']);
+        $result->assertOK();
+        $result->assertSee('La fecha de ingreso es obligatoria.');
     }
 }

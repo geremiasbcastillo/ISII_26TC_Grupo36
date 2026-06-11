@@ -95,7 +95,7 @@ helper('form'); ?>
     <div class="modal-card">
         <h3 class="tabla-titulo">Editar Datos del Repuesto</h3>
         
-        <?= form_open('/guardar_edicion') ?>
+        <?= form_open('/guardar_edicion', ['id' => 'formEditarRepuesto']) ?>
             
             <input type="hidden" id="edit_id_repuesto" name="id_repuesto">
 
@@ -155,6 +155,9 @@ function abrirModalEditar(id, nombre, categoria, cantidad, monto, minima) {
     document.getElementById('edit_cantidad').value = cantidad;
     document.getElementById('edit_cantidad_minima').value = minima;
     document.getElementById('edit_monto').value = monto;
+    
+    // Cambiar la URL de envío del formulario dinámicamente
+    document.getElementById('formEditarRepuesto').action = '<?= base_url('guardar_edicion') ?>/' + id;
     
     document.getElementById('modalEditar').style.display = 'flex';
 }

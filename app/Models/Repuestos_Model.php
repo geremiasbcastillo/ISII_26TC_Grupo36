@@ -20,4 +20,12 @@ class Repuestos_Model extends Model
     protected $createdField  = '';
     protected $updatedField  = '';
     protected $validationRules = [];
+
+    public function verificarRepuesto($id_repuesto)
+    {
+        // Obtener el repuesto
+        $repuestoData = $this->find($id_repuesto);
+
+        return $repuestoData;
+    }
 } 

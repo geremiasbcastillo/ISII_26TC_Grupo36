@@ -125,8 +125,7 @@ class Reparaciones_Controller extends BaseController
             $id_repuesto = $repuesto['id_repuesto'];
             $cantidad_usada = $repuesto['cantidad'];
 
-            // Obtener el repuesto
-            $repuestoData = $repuestosModel->find($id_repuesto);
+            $repuestoData = $repuestosModel->verificarRepuesto($id_repuesto);
 
             if (!$repuestoData) {
                 return redirect()->back()->with('mensaje_error', 'Repuesto no encontrado: ' . $repuesto['nombre']);
