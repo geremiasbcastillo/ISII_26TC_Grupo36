@@ -21,7 +21,7 @@ class Equipos_model extends Model
     protected $updatedField  = '';
     protected $validationRules = [];
 
-    protected function encontrarEquipoActivo($id_equipo)
+    public function encontrarEquipoActivo($id_equipo)
     {
         return $this->where('id_equipo', $id_equipo)->where('equipo_estado', 1)->first();
     }

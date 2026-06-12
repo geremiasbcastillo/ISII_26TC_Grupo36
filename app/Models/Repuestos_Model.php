@@ -23,8 +23,6 @@ class Repuestos_Model extends Model
 
     /**
      * Obtiene los repuestos con el nombre de su categoría utilizando un procedimiento almacenado.
-     * 
-     * @return array
      */
     public function obtenerRepuestosConCategoria()
     {
@@ -32,5 +30,18 @@ class Repuestos_Model extends Model
         $query = $db->query("CALL ObtenerRepuestosConCategoria()");
         
         return $query->getResultArray();
+    }
+    
+    /**
+     * Verifica la existencia de un repuesto por ID.
+     * 
+     * @param int|string $id_repuesto ID del repuesto a verificar
+     */
+    public function verificarRepuesto($id_repuesto)
+    {
+        // Obtener el repuesto
+        $repuestoData = $this->find($id_repuesto);
+
+        return $repuestoData;
     }
 } 

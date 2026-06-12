@@ -1,0 +1,11 @@
+Servicio Tecnico
+ [x] Verificar dni cliente registrado
+ [x] Verificar dni cliente no encontrado
+ [x] Guardar diagnostico sin analisis
+ [x] Guardar diagnostico exitoso
+ [x] Guardar diagnostico solucion corta
+ [x] Registrar equipo sin dni
+ [x] Registrar equipo sin nro serie
+ [x] Registrar equipo sin falla
+ [x] Registrar equipo sin fecha ingreso
+

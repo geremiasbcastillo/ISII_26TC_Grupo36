@@ -105,7 +105,7 @@ class Repuestos_controller extends BaseController
     /**
      * Actualiza los datos de un repuesto existente en el sistema, validando los datos y guardándolos en la base de datos.
      */
-    public function guardar_edicion()
+    public function guardar_edicion($id_repuesto)
     {
         // 1. Obtener la petición y la validación
         $request = service('request');
@@ -159,7 +159,7 @@ class Repuestos_controller extends BaseController
         // 8. Ejecutar la actualización usando el ID
         if ($repuestoModel->update($id_repuesto, $data)) {
             // Éxito
-            return redirect()->route('stock_repuestos')->with('mensaje_success', 'Repuesto actualizado correctamente.');
+            return redirect()->route('actualizar_repuestos')->with('mensaje_success', 'Repuesto actualizado correctamente.');
         } else {
             // Fallo en la base de datos
             return redirect()->back()->withInput()->with('mensaje_error', 'Error al actualizar en la base de datos.');

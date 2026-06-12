@@ -16,9 +16,9 @@ class Equipos_controller extends BaseController
     public function mostrarFormularioRegistro()
     {
         // Cargamos los modelos necesarios para obtener los datos de marcas, tipos y modelos.
-        $marcaModel  = new \App\Models\Marcas_model();
-        $tipoModel   = new \App\Models\Tipos_Equipos_model();
-        $modeloModel = new \App\Models\Modelos_Equipos_model();
+        $marcaModel  = model(\App\Models\Marcas_model::class);
+        $tipoModel   = model(\App\Models\Tipos_Equipos_model::class);
+        $modeloModel = model(\App\Models\Modelos_Equipos_model::class);
 
         $data['titulo']  = 'Registrar Equipo';
         
@@ -77,9 +77,9 @@ class Equipos_controller extends BaseController
             $data['titulo'] = 'Registrar Equipo';
             $data['validation'] = $validation->getErrors();
             
-            $marcaModel  = new \App\Models\Marcas_model();
-            $tipoModel   = new \App\Models\Tipos_Equipos_model();
-            $modeloModel = new \App\Models\Modelos_Equipos_model();
+            $marcaModel  = model(\App\Models\Marcas_model::class);
+            $tipoModel   = model(\App\Models\Tipos_Equipos_model::class);
+            $modeloModel = model(\App\Models\Modelos_Equipos_model::class);
             
             $data['marcas']  = $marcaModel->findAll();
             $data['tipos']   = $tipoModel->findAll();
@@ -99,15 +99,20 @@ class Equipos_controller extends BaseController
         $fecha       = $request->getPost('fechaIngreso');
         $equipo_estado = 1; // 1 para activo, 0 para inactivo
 
+        // Validar que la fecha de ingreso no sea futura
+        if (strtotime($fecha) > strtotime(date('Y-m-d'))) {
+            return redirect()->back()->withInput()->with('mensaje_error', 'La fecha de ingreso no puede ser una fecha futura.');
+        }
+
         // Verificación del DNI contra la tabla `cliente`
-        $clienteModel = new \App\Models\Clientes_Model();
+        $clienteModel = model(\App\Models\Clientes_Model::class);
         $cliente = $clienteModel->verificarDni($dni_cliente);
 
         if (!$cliente) {
             return redirect()->route('agregar')->with('mensaje_error', 'Cliente no encontrado.');
         }
 
-        $equipoModel = new \App\Models\Equipos_model();
+        $equipoModel = model(\App\Models\Equipos_model::class);
         
         // Buscamos si ya existe algún equipo con ese número de serie en la BD
         $equipoExistente = $equipoModel->where('nroSerie', $nroSerie)->first();
@@ -116,7 +121,7 @@ class Equipos_controller extends BaseController
             return redirect()->route('agregar')->with('mensaje_error', 'Equipo ya se encuentra registrado.');
         }
 
-        $equipoModel = new \App\Models\Equipos_model();
+        $equipoModel = model(\App\Models\Equipos_model::class);
         
         // Cargamos los datos en un arreglo para insertar en la base de datos.
         $dataEquipo = [
@@ -144,10 +149,10 @@ class Equipos_controller extends BaseController
     public function listadoEquipos()
     {
         // Cargamos el modelo de equipos y hacemos un join con las tablas relacionadas para obtener toda la información necesaria.
-        $equipo = new \App\Models\Equipos_model();
-        $tipoModel   = new \App\Models\Tipos_equipos_model();
-        $marcaModel  = new \App\Models\Marcas_model();
-        $modeloModel = new \App\Models\Modelos_equipos_model();
+        $equipo = model(\App\Models\Equipos_model::class);
+        $tipoModel   = model(\App\Models\Tipos_equipos_model::class);
+        $marcaModel  = model(\App\Models\Marcas_model::class);
+        $modeloModel = model(\App\Models\Modelos_equipos_model::class);
 
         $data['equipos'] = $equipo->select('
                 equipo.*, 
@@ -160,6 +165,7 @@ class Equipos_controller extends BaseController
                ->join('modelo_equipo', 'modelo_equipo.id_modelo = equipo.id_modelo')
                ->join('marca', 'marca.id_marca = modelo_equipo.id_marca')
                ->where('equipo.equipo_estado', 1) // Solo equipos activos
+               ->orderBy('equipo.fechaIngreso', 'DESC')
                ->findAll();
 
         $data['titulo'] = 'Listado de Equipos';
@@ -180,7 +186,7 @@ class Equipos_controller extends BaseController
     public function editarEquipo($id_equipo = null)
     {
         $request = \Config\Services::request();
-        $equipoModel = new \App\Models\Equipos_model();
+        $equipoModel = model(\App\Models\Equipos_model::class);
         $validation = \Config\Services::validation();
 
         $validation->setRules(
@@ -251,7 +257,7 @@ class Equipos_controller extends BaseController
      */
     public function eliminarEquipo($id_equipo = null)
     {
-        $equipoModel = new \App\Models\Equipos_model();
+        $equipoModel = model(\App\Models\Equipos_model::class);
 
         // En lugar de usar $equipoModel->delete(), hace un UPDATE del estado a 0 (inactivo).
         if ($equipoModel->update($id_equipo, ['equipo_estado' => 0])) {
