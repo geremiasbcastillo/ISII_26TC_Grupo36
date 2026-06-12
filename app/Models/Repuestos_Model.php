@@ -20,4 +20,17 @@ class Repuestos_Model extends Model
     protected $createdField  = '';
     protected $updatedField  = '';
     protected $validationRules = [];
+
+    /**
+     * Obtiene los repuestos con el nombre de su categoría utilizando un procedimiento almacenado.
+     * 
+     * @return array
+     */
+    public function obtenerRepuestosConCategoria()
+    {
+        $db = \Config\Database::connect();
+        $query = $db->query("CALL ObtenerRepuestosConCategoria()");
+        
+        return $query->getResultArray();
+    }
 } 

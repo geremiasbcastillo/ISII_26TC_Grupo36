@@ -69,9 +69,7 @@ class Home extends BaseController
         $repuestoModel = new \App\Models\Repuestos_Model();
         $categoriaModel = new \App\Models\Categorias_Model();
 
-        $repuestos = $repuestoModel->select('repuesto.*, categoria_repuesto.nombre AS categoria_nombre')
-                               ->join('categoria_repuesto', 'categoria_repuesto.id_categoria_repuesto = repuesto.id_categoria_repuesto')
-                               ->findAll();
+        $repuestos = $repuestoModel->obtenerRepuestosConCategoria();
         
         $data['repuestos'] = $repuestos;
         $data['categorias'] = $categoriaModel->findAll();
