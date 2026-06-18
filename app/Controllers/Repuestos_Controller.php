@@ -84,7 +84,7 @@ class Repuestos_controller extends BaseController
             return redirect()->back()->withInput()->with('mensaje_error', 'Ya existe un repuesto registrado con ese nombre.');
         }
 
-        // Cargamos los datos en un arreglo para insertar en la base de datos (respetando los nombres de tu tabla).
+        // Cargamos los datos en un arreglo para instanciar el objeto de negocio.
         $dataRepuesto = [
             'nombre'                => $nombre,
             'cantidad'              => $cantidad,
@@ -93,8 +93,10 @@ class Repuestos_controller extends BaseController
             'id_categoria_repuesto' => $id_categoria_repuesto
         ];
 
-        // El método insert() devuelve true si guardó bien en la BD, o false si falló.
-        if ($repuestoModel->insert($dataRepuesto)) {
+        // Instanciamos el objeto de negocio de Repuesto
+        $repuesto = new \App\Libraries\Repuesto($dataRepuesto);
+
+        if ($repuesto->guardarRepuesto()) {
             // Redirige a donde consideres adecuado (ej. la lista de repuestos o el menú principal)
             return redirect()->route('principal')->with('mensaje_success', 'El repuesto "' . $nombre . '" fue registrado exitosamente.');
         } else {
@@ -149,6 +151,7 @@ class Repuestos_controller extends BaseController
 
         // 7. Preparar datos para actualizar
         $data = [
+            'id_repuesto'           => $id_repuesto,
             'nombre'                => $nombre,
             'cantidad'              => $cantidad,
             'monto'                 => $monto,
@@ -156,8 +159,12 @@ class Repuestos_controller extends BaseController
             'id_categoria_repuesto' => $id_categoria_repuesto
         ];
 
-        // 8. Ejecutar la actualización usando el ID
-        if ($repuestoModel->update($id_repuesto, $data)) {
+        // Instanciar el objeto de negocio de Repuesto y registrar observadores
+        $repuestoObj = new \App\Libraries\Repuesto($data);
+        $repuestoObj->agregarObservador(new \App\Libraries\NotificadorEmail());
+
+        // 8. Ejecutar la actualización
+        if ($repuestoObj->guardarEdicion()) {
             // Éxito
             return redirect()->route('actualizar_repuestos')->with('mensaje_success', 'Repuesto actualizado correctamente.');
         } else {

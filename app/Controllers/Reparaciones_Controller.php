@@ -121,34 +121,33 @@ class Reparaciones_Controller extends BaseController
         $monto_total = 0;
 
         // Procesar cada repuesto utilizado
-        foreach ($repuestosUsados as $repuesto) {
-            $id_repuesto = $repuesto['id_repuesto'];
-            $cantidad_usada = $repuesto['cantidad'];
+        foreach ($repuestosUsados as $repuestoInfo) {
+            $id_repuesto = $repuestoInfo['id_repuesto'];
+            $cantidad_usada = $repuestoInfo['cantidad'];
 
-            $repuestoData = $repuestosModel->verificarRepuesto($id_repuesto);
+            // Buscamos y construimos el objeto de negocio Repuesto
+            $repuestoObj = \App\Libraries\Repuesto::buscarRepuesto($id_repuesto);
 
-            if (!$repuestoData) {
-                return redirect()->back()->with('mensaje_error', 'Repuesto no encontrado: ' . $repuesto['nombre']);
+            if (!$repuestoObj) {
+                return redirect()->back()->with('mensaje_error', 'Repuesto no encontrado: ' . $repuestoInfo['nombre']);
             }
 
             // Verificar stock disponible
-            if ($cantidad_usada > $repuestoData['cantidad']) {
-                return redirect()->back()->with('mensaje_error', 'Stock insuficiente para: ' . $repuestoData['nombre']);
+            if ($cantidad_usada > $repuestoObj->cantidad) {
+                return redirect()->back()->with('mensaje_error', 'Stock insuficiente para: ' . $repuestoObj->nombre);
             }
 
-            // Calcular nuevo stock
-            $nuevo_stock = $repuestoData['cantidad'] - $cantidad_usada;
+            // Actualizar stock del repuesto en el objeto
+            $repuestoObj->cantidad -= $cantidad_usada;
 
-            // Actualizar stock del repuesto
-            $repuestosModel->update($id_repuesto, ['cantidad' => $nuevo_stock]);
+            // Registrar el observador para enviar el email
+            $repuestoObj->agregarObservador(new \App\Libraries\NotificadorEmail());
+
+            // Guardar edición (esto persistirá en la BD y verificará/notificará si el stock está bajo)
+            $repuestoObj->guardarEdicion();
 
             // Acumular el precio del repuesto multiplicado por la cantidad utilizada
-            $monto_total += $cantidad_usada * $repuestoData['monto'];
-
-            // Verificar si el stock está por debajo del mínimo
-            if ($nuevo_stock <= $repuestoData['cantidad_minima']) {
-                $this->enviarAlertaStock($repuestoData['nombre'], $nuevo_stock, $repuestoData['cantidad_minima']);
-            }
+            $monto_total += $cantidad_usada * $repuestoObj->monto;
         }
 
         // guardamos la reparación
@@ -206,68 +205,5 @@ class Reparaciones_Controller extends BaseController
         ];
 
         return redirect()->to('reparacion')->with('data', $data);
-    }
-
-    /**
-     * Envía una alerta por correo electrónico si el stock de un repuesto cae bajo el límite mínimo.
-     * 
-     * @param string $nombreRepuesto Nombre del repuesto con stock crítico.
-     * @param int $stockRestante Cantidad restante disponible.
-     * @param int $stockMinimo Límite de stock mínimo definido.
-     * 
-     * @return bool Retorna falso si el correo del destinatario no se encuentra en sesión.
-     */
-    private function enviarAlertaStock($nombreRepuesto, $stockRestante, $stockMinimo)
-    {
-        // Obtenemos el correo de la sesión actual
-        // (Asumo que lo guardaste como 'correo' basándome en tu método de guardar_usuario)
-        $correoDestino = session()->get('email'); 
-
-        // Si por alguna razón el usuario no tiene correo en sesión, abortamos el envío
-        if (empty($correoDestino)) {
-            log_message('error', 'Intento de enviar alerta de stock sin correo en sesión.');
-            return false; 
-        }
-
-        // Cargamos el servicio de Email
-        $email = \Config\Services::email();
-
-        // Configuramos el remitente y destinatario
-        $email->setFrom('serviciotecnicounne@gmail.com', 'Sistema de Servicio Técnico');
-        $email->setTo($correoDestino);
-        
-        // Asunto y cuerpo del correo (En formato HTML para que se vea profesional)
-        $email->setSubject('⚠️ ALERTA: Stock Bajo de Repuesto');
-        
-        $mensajeHTML = "
-            <div style='font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;'>
-                <div style='background-color: #dc3545; color: white; padding: 15px; text-align: center;'>
-                    <h2 style='margin: 0;'>Alerta de Inventario</h2>
-                </div>
-                <div style='padding: 20px;'>
-                    <p>Hola,</p>
-                    <p>El sistema automático de inventario ha detectado que un repuesto ha alcanzado o superado su límite mínimo tras la última reparación registrada.</p>
-                    
-                    <div style='background-color: #f8f9fa; border-left: 4px solid #dc3545; padding: 15px; margin: 20px 0;'>
-                        <p style='margin: 0 0 10px 0;'><strong>Repuesto:</strong> {$nombreRepuesto}</p>
-                        <p style='margin: 0 0 10px 0; color: #dc3545;'><strong>Stock Actual:</strong> {$stockRestante} unidades</p>
-                        <p style='margin: 0;'><strong>Stock Mínimo Permitido:</strong> {$stockMinimo} unidades</p>
-                    </div>
-                    
-                    <p>Por favor, gestiona la reposición con el proveedor correspondiente a la brevedad posible.</p>
-                    <hr style='border: none; border-top: 1px solid #eee; margin: 20px 0;' />
-                    <p style='font-size: 12px; color: #999;'>Este es un mensaje automático generado por el Sistema de Servicio Técnico. No respondas a este correo.</p>
-                </div>
-            </div>
-        ";
-        
-        $email->setMessage($mensajeHTML);
-
-        // Enviamos el correo
-        if (!$email->send()) {
-            // Si falla, guardamos el error en los logs de CodeIgniter (writable/logs/)
-            // No detenemos la aplicación porque la reparación ya se guardó con éxito.
-            log_message('error', 'No se pudo enviar la alerta de stock: ' . $email->printDebugger(['headers']));
-        }
     }
 }

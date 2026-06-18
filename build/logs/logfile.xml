@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="ServicioTecnicoTest" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" tests="9" assertions="26" errors="0" failures="0" skipped="0" time="0.212837">
-    <testcase name="testVerificarDniClienteRegistrado" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="80" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="3" time="0.090051"/>
-    <testcase name="testVerificarDniClienteNoEncontrado" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="114" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="3" time="0.010188"/>
-    <testcase name="testGuardarDiagnosticoSinAnalisis" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="142" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="4" time="0.019883"/>
-    <testcase name="testGuardarDiagnosticoExitoso" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="172" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="4" time="0.013693"/>
-    <testcase name="testGuardarDiagnosticoSolucionCorta" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="220" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="4" time="0.012567"/>
-    <testcase name="testRegistrarEquipoSinDni" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="251" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="2" time="0.024986"/>
-    <testcase name="testRegistrarEquipoSinNroSerie" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="276" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="2" time="0.013852"/>
-    <testcase name="testRegistrarEquipoSinFalla" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="301" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="2" time="0.013517"/>
-    <testcase name="testRegistrarEquipoSinFechaIngreso" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="326" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="2" time="0.014100"/>
+  <testsuite name="ServicioTecnicoTest" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" tests="9" assertions="26" errors="0" failures="0" skipped="0" time="0.159849">
+    <testcase name="testVerificarDniClienteRegistrado" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="80" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="3" time="0.071335"/>
+    <testcase name="testVerificarDniClienteNoEncontrado" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="114" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="3" time="0.007691"/>
+    <testcase name="testGuardarDiagnosticoSinAnalisis" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="142" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="4" time="0.013114"/>
+    <testcase name="testGuardarDiagnosticoExitoso" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="172" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="4" time="0.009629"/>
+    <testcase name="testGuardarDiagnosticoSolucionCorta" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="220" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="4" time="0.008467"/>
+    <testcase name="testRegistrarEquipoSinDni" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="251" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="2" time="0.017717"/>
+    <testcase name="testRegistrarEquipoSinNroSerie" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="276" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="2" time="0.010588"/>
+    <testcase name="testRegistrarEquipoSinFalla" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="301" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="2" time="0.010632"/>
+    <testcase name="testRegistrarEquipoSinFechaIngreso" file="C:\xampp\htdocs\ISII_26TC_Grupo36\tests\unit\ServicioTecnicoTest.php" line="326" class="ServicioTecnicoTest" classname="ServicioTecnicoTest" assertions="2" time="0.010676"/>
   </testsuite>
 </testsuites>
